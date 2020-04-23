@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head append-html="/game/html5/instant/evoplay/scratchmatch/head.html?v=0.0.53">
+    <script>var jsvars = {
+    "game_path": "\/game\/html5\/instant\/evoplay\/scratchmatch\/",
+    "base_path": "\/game\/html5\/instant\/",
+    "game_name": "instant\\html5\\evoplay\\scratchmatch",
+    "customVars": "7b2230223a2231363133313034222c2231223a2231222c2232223a2231222c2273223a226361373566303634386636346162653164653864613837323933303936646131227d",
+    "back_url": "https:\/\/sacasino.bet",
+    "cash_url": "",
+    "redirect_inside_iframe": false,
+    "action_url": "\/fullstate\/html5\/evoplay\/scratchmatch\/?project=616",
+    "language": "en",
+    "debug": false,
+    "show_clock": true,
+    "show_history": false,
+    "hosts_for_static": [
+        "https:\/\/play.8provider.com"
+    ],
+    "hide_currency": false,
+    "portrait_mode_enabled": false
+};</script>
+        <script src="/game/html5/instant/evoplay/scratchmatch/libs/preloadUtils.js?v=0.0.53" onload=utils.preloadHTML()></script>
+</head>
+
+<body append-html="/game/html5/instant/evoplay/scratchmatch/body.html?v=0.0.53">
+
+</body>
+
+</html>

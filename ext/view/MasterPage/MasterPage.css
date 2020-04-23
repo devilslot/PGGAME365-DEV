@@ -1,0 +1,46 @@
+.E_PAGE{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.E_OVERLAY{
+	position: absolute;
+	left: 0;
+	top: 0;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    opacity: 0.8;
+}
+
+.E_MESSAGE{
+	position: absolute;
+	width: 50%;
+	left: 25%;
+	top: 10%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	z-index: 99999;
+	background: #161616;
+	border: 1px solid #FFF;
+	color: #FFF;
+	text-align: center;
+}
+
+.E_MESSAGE i{
+	font-size: 1.5em;
+} 
+
+.E_MESSAGE span{
+	margin-top: 30px;
+	font-size: 1em;
+	line-height: 50px;
+}
+
+.E_MESSAGE button{
+	margin-top: 10px;
+}

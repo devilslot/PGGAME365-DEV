@@ -1,0 +1,2222 @@
+﻿<!DOCTYPE html>
+<html style="font-size: 5px;">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=0.2, maximum-scale=5, user-scalable=no, viewport-fit=cover">
+	<meta name="description" content="welcome">
+	<title></title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta property="og:image" content="logo_1200x630.jpg">
+	<meta name="thumbnail" content="logo_1200x630.jpg">
+	<!-- <link rel="shortcut icon" href="./images/vendor_logo_bg/vendor_01/favicon.ico" type="image/x-icon"> -->
+	<!-- <link rel="icon" href="./images/vendor_logo_bg/vendor_01/favicon.ico"> -->
+	<link rel="apple-touch-icon" href="logo_114x114.jpg">
+	<link rel="apple-touch-icon" sizes="72x72" href="logo_72x72.jpg">
+	<link rel="apple-touch-icon" sizes="144x144" href="logo_144x144.jpg">
+	<script>
+		document.title = "WM";
+		window.co = "wm";
+		window.version = "20.4.1.1";
+		window.loginparams = window.location.hash.substr(1).split('&');
+		window.location.hash = "";
+		window.size = 1;
+		window.lang = "cn";
+		window.ui = 0;
+		window.assignUI = false;
+		window.register = 0;
+		switch (document.domain)
+		{
+			case "demo.net":
+				window.ui = 0;
+				window.assignUI = true;
+				break;
+			default:
+
+				break;
+		}
+		if (document.domain.split(".")[0] == "kposa01")
+			window.ui = 1;
+
+		var params = window.location.search.substr(1).split('&');
+		params = params.concat(window.loginparams);
+		var d = new Date();
+		d.setTime(d.getTime() + (60 * 1000));
+		for (var number in params)
+		{
+			var keyAndValue = params[number].split('=');
+			var key = keyAndValue[0];
+			var value = keyAndValue[1];
+			switch(key)
+			{
+				case "debug":
+					window.debug = value == "true";
+					break;
+				case "sid":
+					document.cookie = "sid="+ value + "; " + "expires=" + d.toGMTString() + "; path=/"; 
+					break;
+				case "lang":
+					document.cookie = "lang="+ value + "; path=/"; 
+					break;
+				case "size":
+					window.size = value;
+					break;
+				default:
+			}
+		}
+	</script>
+	<style type="text/css">
+		body {
+			-moz-user-select : none;
+			-webkit-user-select: none;
+			-webkit-touch-callout: none;
+			background-color: #111;
+			font-family:Microsoft JhengHei;
+			color: #FFF;
+			-webkit-tap-highlight-color: transparent;
+			transform-origin: 0 0;
+			margin: 0;
+			border: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;}
+		div {box-sizing: border-box;}
+		/*剛進選擇版本的LOADING*/
+				.loading_start{
+				position: fixed;
+				width: 100%;
+				top: 0;
+				left: 0;
+				height: 100%;
+				background: #000;
+				display: none;
+				align-items: center;
+				justify-content: center;
+				pointer-events: auto;
+				z-index: 1001;}
+				.loading_start.on{display: flex;}
+				.loader {
+				display: block;
+				width: 30vmin;
+				height: 30vmin;
+				border-radius: 50%;
+				border: 3px solid transparent;
+				border-top-color: #16a085;
+				-webkit-animation: spin 1.7s linear infinite;
+						animation: spin 1.7s linear infinite;
+				z-index: 11;
+				}
+				.loader:before {
+				content: "";
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				right: 5px;
+				bottom: 5px;
+				border-radius: 50%;
+				border: 3px solid transparent;
+				border-top-color: #e74c3c;
+				-webkit-animation: spin-reverse .6s linear infinite;
+						animation: spin-reverse .6s linear infinite;
+				}
+				.loader:after {
+				content: "";
+				position: absolute;
+				top: 15px;
+				left: 15px;
+				right: 15px;
+				bottom: 15px;
+				border-radius: 50%;
+				border: 3px solid transparent;
+				border-top-color: #f9c922;
+				-webkit-animation: spin 1s linear infinite;
+						animation: spin 1s linear infinite;
+				}
+
+				@-webkit-keyframes spin {
+				0% {
+					-webkit-transform: rotate(0deg);
+				}
+				100% {
+					-webkit-transform: rotate(360deg);
+				}
+				}
+				@keyframes spin {
+				0% {
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+				}
+				100% {
+					-webkit-transform: rotate(360deg);
+					transform: rotate(360deg);
+				}
+				}
+				@-webkit-keyframes spin-reverse {
+				0% {
+					-webkit-transform: rotate(0deg);
+				}
+				100% {
+					-webkit-transform: rotate(-360deg);
+				}
+				}
+				@keyframes spin-reverse {
+				0% {
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+				}
+				100% {
+					-webkit-transform: rotate(-360deg);
+					transform: rotate(-360deg);
+				}
+				}
+		/*Loading*/
+			.mask {
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: -100%;
+				display: block;
+				position: fixed;
+				background-color: #111;
+				pointer-events: visible;
+				opacity: 1;
+				z-index: 1000;}
+			.mask.active {
+				transform: translateY(100%);}
+			.loading {
+				position: absolute;
+				font: normal 3rem Helvetica, Arial, sans-serif;
+				text-align: center;
+				text-transform: uppercase;
+				color: #EFEFEF;
+				width: 17%;
+				height: 55%;
+				top: 50%;
+				left: 50%;
+				-moz-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-webkit-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				z-index: 1;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;}
+			#loading_bar_text > span {
+				font-size:3rem}
+			#loading-box-log{
+				font: normal 2rem Helvetica, Arial, sans-serif}
+			.loadingImage {
+				width: 100%;
+				height: 70%;}
+			.loadingMessage {
+				white-space: nowrap;
+				font-size: 2rem;}
+			.loading_bar_image {
+				height: 0.3rem;
+				background: rgb(37, 96, 255);}
+			#loading_bar_text {
+				margin-top: 7%;
+				color: rgb(255, 255, 255);}
+		/* 彈窗隱藏 */
+			.mask_box{display: none;}
+		/*Q版 - Loading*/
+			.qversion_box .mask{background: #000000 url('./images/Q_images/all_bg/iframe_Share/loading_bg.jpg')  center / cover no-repeat;}
+			.qversion_box .mask .loadingImage{
+				background: url('./images/Q_images/all_bg/iframe_Share/logo.svg')  no-repeat 0 0/100% 100%;
+				width: 100%;
+				height: 13vmax;}
+			.qversion_box .mask .loading_bar_image{
+				height: .4rem;
+				background: #34CCD7;}
+			.portrait #loading_bar_text > span{font-size: 8rem;}
+			.portrait .loading{
+				width: 40%;
+				height: 32%;
+				font-size: 8rem;}
+	</style>
+</head>
+<body ondragstart="return false;" oncontextmenu="return false;" unselectable="on" onselectstart="return false;" onload="OnLoad()">
+	<!-- Global site tag (gtag.js) - Google Analytics
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117491991-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-117491991-1');
+	</script> -->
+	<!--<script async src="https://v1.cnzz.com/z_stat.php?id=1278518486&web_id=1278518486"></script>-->
+	<div id="container" class="container lang-cn">
+		<!-- 廣告 -->
+		<!-- <div id="advertisement" class="animation advertisement">
+			<div class="an1"></div>
+			<div class="an2"></div>
+		</div> -->
+		<!--登入頁-->
+		<div id="login-box" class="login-box">
+			<div class="login-bg"></div>
+			<div class="male"></div>
+			<!-- logo -->
+			<div class="logo"></div>
+			<div class="logo_text"></div>
+			<!-- 掃描app -->
+			<div class="apparea df">
+				<div class="appimg_box">
+					<div class="appimg lang-cn"></div>
+					<div class="appimg lang-en"></div>
+				</div>
+				<div class="text_box df">
+					<span class="appareaT text_127"></span>
+					<a target="_blank" href="https://m.wm555.net/mobile/index.html" class="nowdonwbtn text_128 lang-cn"></a>
+					<a target="_blank" href="https://m.wm555.net/mobile/index.html" class="nowdonwbtn text_128 lang-cn q_app"></a>
+					<a target="_blank" href="https://m.wm555.net/mobile/index_en.html" class="nowdonwbtn text_128 lang-en"></a>
+					<a target="_blank" href="https://m.wm555.net/mobile/index_en.html" class="nowdonwbtn text_128 lang-en q_app"></a>
+				</div>
+			</div>
+			<!-- 帳號 -->
+			<div class="id_box">
+				<input id="account-cn" type="text" class="form_control id lang-cn" placeholder="帐号" />
+				<input id="account-tw" type="text" class="form_control id lang-tw" placeholder="帳號" />
+				<input id="account-en" type="text" class="form_control id lang-en" placeholder="Account" />
+				<input id="account-th" type="text" class="form_control id lang-th" placeholder="หมายเลขบัญชี" />
+				<input id="account-vi" type="text" class="form_control id lang-vi" placeholder="Tên đăng nhập" />
+				<input id="account-ja" type="text" class="form_control id lang-ja" placeholder="アカウント" />
+				<input id="account-ko" type="text" class="form_control id lang-ko" placeholder="아이디" />
+				<input id="account-hi" type="text" class="form_control id lang-hi" placeholder="खाता संख्या" />
+				<input id="account-ms" type="text" class="form_control id lang-ms" placeholder="Akaun" />
+				<input id="account-in" type="text" class="form_control id lang-in" placeholder="Username" />
+				<input id="account-es" type="text" class="form_control id lang-es" placeholder="Cuenta" />
+			</div>
+			<!-- 密碼 -->
+			<div class="password_box">
+				<input id="password-cn" type="password" class="form_control pw lang-cn" placeholder="密码" />
+				<input id="password-tw" type="password" class="form_control pw lang-tw" placeholder="密碼" />
+				<input id="password-en" type="password" class="form_control pw lang-en" placeholder="Password" />
+				<input id="password-th" type="password" class="form_control pw lang-th" placeholder="รหัสผ่าน" />
+				<input id="password-vi" type="password" class="form_control pw lang-vi" placeholder="Mật khẩu" />
+				<input id="password-ja" type="password" class="form_control pw lang-ja" placeholder="パスワード" />
+				<input id="password-ko" type="password" class="form_control pw lang-ko" placeholder="비밀번호" />
+				<input id="password-hi" type="password" class="form_control pw lang-hi" placeholder="पासवर्ड" />
+				<input id="password-ms" type="password" class="form_control pw lang-ms" placeholder="Kata laluan" />
+				<input id="password-in" type="password" class="form_control pw lang-in" placeholder="Kata sandi" />
+				<input id="password-es" type="text" class="form_control pw lang-es" placeholder="Contraseña" />
+			</div>
+			<!-- 玩家登入按鈕 -->
+			<a id="btn-login" class="btn-login mouse_pointer text_123" style="display:none"></a>
+			<!-- 遊客試玩按鈕 -->
+			<a id="btn-guest" class="btn-guest mouse_pointer text_124" style="display:none"></a>
+			<!-- 註冊按鈕 -->
+			<div class="btn_registered mouse_pointer text_6229" id="btn_registered"></div>
+			<!-- 賭場現場視頻 -->
+			<a id="btn-video" class="btn-video mouse_pointer text_129" style="display:none"></a>
+			<!-- 切換語系按鈕 -->
+			<a id="btn-changelanguage" class="btn btn-changelanguage mouse_pointer">
+				<span id="language-type" class="language-type cn"></span>
+			</a>
+			<!-- 切換語系選單 -->
+			<div id="language-list" class="language-list">
+				<div class="set-scroll-zone">
+					<div class="set-scroll ">
+						<a id="language-list-cn" class="language-item language-cn"></a>
+						<a id="language-list-tw" class="language-item language-tw"></a>
+						<a id="language-list-en" class="language-item language-en"></a>
+						<a id="language-list-th" class="language-item language-th"></a>
+						<a id="language-list-vi" class="language-item language-vi"></a>
+						<a id="language-list-ja" class="language-item language-ja"></a>
+						<a id="language-list-ko" class="language-item language-ko"></a>
+						<a id="language-list-hi" class="language-item language-hi"></a>
+						<a id="language-list-ms" class="language-item language-ms"></a>
+						<a id="language-list-in" class="language-item language-in"></a>
+						<a id="language-list-es" class="language-item language-es"></a>
+					</div>
+				</div>
+			</div>
+			<!-- 版本 -->
+			<div class="version-box text_126"></div>
+			<div class="login-background"></div>
+		</div>
+		<!--賭場視頻-->
+		<div id="video-dialog" class="mask_box">
+			<div class="video-dialog dialog">
+				<div class="videotitle-box">
+					<span class="text_129"></span>
+					<a id="video-btn-close" class="btn-close"></a>
+				</div>
+				<div class="separationline"></div>
+				<div id="videocontent-box" class="videocontent-box">
+					<div id="video-box" class="view-box">
+					</div>
+					<div class="channel-box">
+						<a id="btn-channel-1" class="btn-channel active"></a>
+						<a id="btn-channel-2" class="btn-channel"></a>
+						<a id="btn-channel-3" class="btn-channel"></a>
+						<a id="btn-channel-4" class="btn-channel"></a>
+						<a id="btn-channel-5" class="btn-channel"></a>
+					</div>
+				</div>
+			</div>			
+		</div>
+		<!-- 註冊視窗 -->
+		<div class="mask_box" id="registered_box">
+			<div class="registered_box" id="registeredDom">
+				<div class="close_btn" id="registered_closeBtn">
+					<span>&#215;</span>
+				</div>
+				<div class="from_title text_6229"></div>
+				<div class="form_list">
+					<label class="title text_6228"></label>
+					<input type="text" class="input_item promotioncode_input" id="registered_promotecode">
+				</div>
+				<div class="form_list" id="registered_currency_Box">
+					<label class="title text_6230"></label>
+					<select class="input_item" id="registered_currency">
+						<option value="RMB">RMB</option>
+						<option value="USD">USD</option>
+					</select>
+				</div>
+				<div class="form_list">
+					<label class="title text_6231"></label>
+					<input type="text" class="input_item account_input" id="registered_username">
+				</div>
+				<div class="form_list">
+					<label class="title text_6232"></label>
+					<input type="password" class="input_item password_input" id="registered_password">
+				</div>
+				<div class="form_list">
+					<label class="title text_6233"></label>
+					<input type="text" class="input_item name_input" id="registered_name">
+				</div>
+				<div class="form_list">
+					<label class="title text_6252"></label>
+					<input type="text" class="input_item phone_input" id="registered_phone">
+				</div>
+				<div class="submit_btn text_3" id="registered_submitBtn"></div>
+			</div>
+		</div>
+		<!-- <div id="dialog-background" class="dialog-background"></div> -->
+	</div>
+	<div id="extend-container" class="container" style="pointer-events:none;overflow:visible;">
+		<!-- 撥放器 -->
+		<div id="music-box-container" class="mask_box" style="display:none;">
+			<div  class="music-box">
+				<div class="title_box">
+					<span class="text_34"></span>
+					<div class="close_btn mouse_pointer">&#215;</div>
+				</div>
+				<div class="music-top scrollbars"></div>
+				<div class="music-bottom">
+					<a id="previous_song">
+						<svg viewBox="0 0 9.3 9.3" style="enable-background:new 0 0 9.3 9.3;" xml:space="preserve">
+							<style type="text/css">
+								.st9{fill: #191919;}
+							</style>
+							<polygon class="st9" points="0,4.6 5.5,0 5.5,3.2 9.3,0 9.3,9.3 5.5,6.1 5.5,9.3 "/>
+						</svg>
+					</a>
+					<a id="pause_play">
+						<svg viewBox="0 0 8.8 9.4">
+						<style type="text/css">
+							.st9{fill: #191919;}
+						</style>
+						<g>
+							<rect class="st9" width="2.9" height="9.4"/>
+							<rect x="5.8" class="st9" width="2.9" height="9.4"/>
+						</g>
+						</svg>
+					</a>
+					<a id="next_song">
+						<svg viewBox="0 0 9.3 9.3">
+						<style type="text/css">
+							.st9{fill: #191919;}
+						</style>
+						<polygon class="st9" points="9.3,4.7 3.8,9.3 3.8,6.1 0,9.3 0,0 3.8,3.2 3.8,0 "/>
+						</svg>
+					</a>
+				</div>
+			</div>			
+		</div>
+		<!--遊戲須知-->
+		<div id="rule_board" class="mask_box">
+			<div class="rule_box">
+				<div class="title_box">
+					<div class="title_box_item">
+						<div class="rule_icon"></div>
+						<span class="text_6139"></span>
+					</div>
+					<div class="close_btn mouse_pointer"></div>
+				</div>
+				<div class="separationline"></div>
+				<div class="body_box"></div>
+			</div>
+		</div>
+		<!-- 訊號視窗 -->
+		<div id="changevideo-box-container" class="mask_box">
+			<div  class="changevideo_box " >
+				<div class="title_box df">
+					<div class="left_box df">
+						<div class="changevideo_icon"></div>
+						<span class="text_130"></span>
+					</div>
+					<div class="close_btn mouse_pointer"></div>
+				</div>
+				<div class="separationline"></div>
+				<div class="content_box df">
+					<div class="line_list scrollbars  df">
+						<div class="line df mouse_pointer green">
+							<div>Line1</div>
+							<i></i>
+						</div>
+						<div class="line df mouse_pointer gray">
+							<div>Line2</div>
+							<i></i>
+						</div>
+					</div>
+					<div class="submit df mouse_pointer text_3"></div>
+				</div>
+			</div>			
+		</div>
+		<!-- Loading -->
+		<div id="loading_start" class="loading_start on">
+			<div class="loader"></div>
+		</div>
+		<div id="loading-box" class="mask">
+			<div id="back_btn" class="back_btn"></div> 
+			<div class="loading" style="display:none">
+				<div class="loadingImage" id="loadingImage"></div>
+				loading
+				<div id="loading_bar_image" class="loading_bar_image"></div>
+				<div id="loading_bar_text">
+					<span>0</span><span>%</span>
+				</div>
+			</div>
+			<div style="position:absolute;left:3%;bottom:3%;display:none;">
+				<pre id="loading-box-log"></pre>
+				<div id="loadingMessage" class="loadingMessage">Getting URL Settings.</div>
+			</div>
+			<!-- 檢查線路 -->
+			<a href="https://check.a45.me" class="check_line" target="_blank"></a>
+		</div>
+		<!-- 彈跳訊息 -->
+		<div id="popup-box-container" class="alert_box" style="display: none;">
+			<div class="alert" style-type="2">
+				<div class="info-box text"></div>
+				<div class="function-box">
+					<a class="btn btn-type1 text_1"></a>
+					<a class="btn btn-type2 text_2"></a>
+					<a class="btn btn-ok text_3"></a>
+				</div>
+			</div>
+		</div>
+		<!-- 設定 -->
+		<div class="set_btn mouse_pointer remind" id="set_btn"></div>
+		<!-- 個人資訊區 ( 大頭照+名字+金額 ) -->
+		<div class="user_bg" id="user_bg">
+			<div id="userPicture" class="picture pb101"></div>
+			<div class="username" id="userName"></div>
+			<div class="money_box" id="userMoneyBox">
+				<span id="userBalance"></span>
+			</div>
+		</div>		
+		<!-- 跑馬燈 -->
+		<div id="btn_news" class="marquee_box">
+			<div class="marquee">
+				<div id="marquee_content" class='white'></div>
+			</div>
+		</div>
+		<!-- 訊號按鈕 -->
+		<!-- <div id="signal_icon" class="mouse_pointer i-signal"></div> -->
+		<!-- 選單 -->
+		<div id="menu_box" class="mask_box">
+			<div class="closemenu_btn mouse_pointer"></div>
+			<div class="menu_box">
+				<!-- 個人資訊 -->
+				<div id="btn-personalinfo" class="menu_item Personalinfo_btn mouse_pointer df">
+					<span class="information_btn df"></span>
+					<div class="text_61"></div>
+				</div>
+				<!-- 今日排名 -->
+				<div id="btn-ranking" class="menu_item Ranking_btn mouse_pointer df">
+					<span class="ranking_btn df"></span>
+					<div class="text_62"></div>
+				</div>
+				<!-- 遊戲規則 -->
+				<div id="rule_item" class="menu_item Rule_btn mouse_pointer df">
+					<span class="gamerule_btn df"></span>
+					<div class="text_6139"></div>
+				</div>
+				<!-- 關注 -->
+				<div id="btn-follow" class="menu_item Follow_btn mouse_pointer df">
+					<span class="follow_btn df"></span>
+					<div class="text_64"></div>
+				</div>
+				<!-- 今日報表 -->
+				<div id="report_item" class="menu_item Report_btn mouse_pointer df">
+					<span class="report_btn df"></span>
+					<div class="text_6243"></div>
+				</div>
+				<!-- 音效 -->
+				<div id="music_item" class="menu_item Music_btn mouse_pointer df">
+					<span class="sound_btn df"></span>
+					<div class="text_243"></div>
+				</div>
+				<!-- 籌碼設定 -->
+				<div id="setChips_item" class="menu_item Setchips_btn mouse_pointer df">
+					<span class="chipset_btn df"></span>
+					<div class="text_168"></div>
+				</div>
+				<!-- 安全設定 -->
+				<div id="security_item" class="menu_item Security_btn mouse_pointer df">
+					<span class="security_btn df"></span>
+					<div class="text_172"></div>
+				</div>
+				<!-- 語言設定 -->
+				<!-- <div id="lang_item" class="menu_item Lang_btn mouse_pointer df">
+					<span class="language_btn df"></span>
+					<div class="text_6158"></div>
+				</div>-->
+				<!-- 訊號設定 -->				
+				<div id="signal_item" class="menu_item Signal_btn mouse_pointer df">
+                    <span class="signal_btn df"></span>
+                    <div class="text_130"></div>
+                </div>
+			</div>
+		</div>
+		<!--個人資訊-->
+		<div id="personalinfo-dialog" class="mask_box">
+			<div class="personalinfo-dialog dialog">
+				<div class="title-box">
+					<span><i class="text_61"></i></span>
+					<a class="btn-close"></a>
+				</div>
+				<div class="content-box black">
+					<div class="personalinfo-box">
+						<div class="playerpic-box">
+							<a id="btn-changeheadshot" class="btn-changeheadshot">
+								<i></i>
+								<div id="personalinfo-headshot" class="headshot pb101"></div>
+							</a>
+						</div>
+						<div class="playerdetail-box">
+							<div class="nickname-box">
+								<a class="btn-editnick text_167"><span id="playerdetail-nickname"></span></a>
+							</div>
+							<div class="handle-box">
+								<div id="playerdetail-handle" class="handle">
+									<i></i>
+								</div>
+								<div id="playerdetail-rank" class="rank"></div>
+							</div>
+						</div>
+						<div class="todayinfo-box">
+							<div class="todaytitle-box text_171"></div>
+							<div  class="game-box">
+								<div class="gametype-box">
+									<div class="gamename gamename01 text_40"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-bac-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-bac-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename02 text_41"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-dgTg-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-dgTg-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename03 text_42"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-rou-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-rou-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename04 text_43"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-sicBo-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-sicBo-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename05 text_44"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-niuNiu-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-niuNiu-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename06 text_27"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-samGong-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-samGong-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename07 text_46"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-fanTan-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-fanTan-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename08 text_48"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-seDie-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-seDie-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename10 text_47"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-fishShrimpCrab-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-fishShrimpCrab-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename11 text_173"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-goldenFlower-value" class="value">0</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-goldenFlower-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename13 text_6173"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-thisBar-value" class="value">0%</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-thisBar-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename12 text_6174"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-paiGow-value" class="value">0%</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-paiGow-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename17 text_6218"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-caribbeanPoker-value" class="value">0%</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-caribbeanPoker-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename21 text_6222"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-tripleEdgePoker-value" class="value">0%</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-tripleEdgePoker-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="gametype-box">
+									<div class="gamename gamename22 text_6225"></div>
+									<div class="gamevalue-box">
+										<div id="todayinfo-box-redBlack-value" class="value">0%</div>
+										<div class="barpic-box" data-value="">
+											<div id="todayinfo-box-redBlack-barpic" class="barpic" style="width: 0%;"></div>
+										</div>
+									</div>
+								</div>
+								<div id="playerdetail-rank" class="rank"></div>
+							</div>
+						</div>
+						<div class="starinfo-box">
+							<div class="starinfo-item starinfo-01">
+								<div class="title text_180"></div>
+								<div id="starinfo-box-onlineTime-value" class="value">00:00:00</div>
+								<div id="starinfo-box-onlineTime-star-box" class="star-box">
+									<span class="on">&#9733;</span>
+									<span>&#9733;</span>
+									<span>&#9733;</span>
+									<span>&#9733;</span>
+									<span>&#9733;</span>
+								</div>
+							</div>
+							<div class="starinfo-item starinfo-02">
+								<div class="title text_181"></div>
+								<div id="starinfo-box-todayBet-value" class="value">0</div>
+								<div id="starinfo-box-todayBet-star-box" class="star-box">
+									<span class="on">&#9733;</span>
+									<span>&#9733;</span>
+									<span>&#9733;</span>
+									<span>&#9733;</span>
+									<span>&#9733;</span>
+								</div>
+							</div>
+							<div class="starinfo-item starinfo-03">
+								<div class="title text_182"></div>
+								<div id="starinfo-box-historyBet-value" class="value">0</div>
+								<div id="starinfo-box-historyBet-star-box" class="star-box">
+									<span class="on">&#9733;</span>
+									<span>&#9733;</span>
+									<span>&#9733;</span>
+									<span>&#9733;</span>
+									<span>&#9733;</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 	
+		</div>
+		<div id="changeheadshot-dialog" class="mask_box">
+			<div class="changeheadshot-dialog dialog">
+				<div class="title-box">
+					<a class="btn-back"></a>
+					<span class="text_184"></span>
+				</div>
+				<div class="content-box black">
+					<div class="changeheadshot-box">
+						<div id="changeheadshot-headshot-box" class="headshot-box">
+							<div id="hs1" class="headshot pb101"></div>
+							<div id="hs2" class="headshot pb102 select"></div>
+							<div id="hs3" class="headshot pb103"></div>
+							<div id="hs4" class="headshot pb104"></div>
+							<div id="hs5" class="headshot pb105"></div>
+							<div id="hs6" class="headshot pb106"></div>
+							<div id="hs7" class="headshot pb107"></div>
+							<div id="hs8" class="headshot pb108"></div>
+							<div id="hs9" class="headshot pb109"></div>
+							<div id="hs10" class="headshot pb110"></div>
+							<div id="hs11" class="headshot pb111"></div>
+							<div id="hs12" class="headshot pb112"></div>
+						</div>
+						<a id="changeheadshot-btn-save" class="btn-save text_185"></a>
+					</div>
+				</div>
+			</div>        	
+		</div>
+		<!-- 今日排行 -->
+		<div id="toptable-dialog" class="mask_box">
+			<div class="toptable-dialog dialog">
+				<div class="title-box">
+					<span><i class="text_206"></i></span>
+					<a id="toptable-dialog-btn-close" class="btn-close"></a>
+				</div>
+				<div class="content-box white">
+					<div class="toptable-box scrollbars">
+						<ul class="nav toptable-nav-tabs" role="tablist">
+							<li role="presentation" class="active">
+								<a id="btn-regal" role="tab" data-toggle="tab" class="richman text_212"></a>
+							</li>
+							<li role="presentation" class="">
+								<a id="btn-todaybigwinner" role="tab" data-toggle="tab" class="todaywinner text_214"></a>
+							</li>
+							<li role="presentation" class="">
+								<a id="btn-todaybet" role="tab" data-toggle="tab" class="todaybetking text_207"></a>
+							</li>
+							<li role="presentation" class="">
+								<a id="btn-todaywinning" role="tab" data-toggle="tab" class="todaywin text_171"></a>
+							</li>
+							<li role="presentation" class="">
+								<a id="btn-besttip" role="tab" data-toggle="tab" class="tipking text_216"></a>
+							</li>
+						</ul>
+						<div class="toptable-tab-content">
+							<!-- 今日勝率 -->
+							<div id="todaywinning-panel" class="toptable-tab-panel todaywinning-panel" role="tabpanel">
+								<div id="todaywinning-panel-null" class="no-record" style="padding-top:300px;text-align:center;font-size:36px;">
+								</div>
+								<div id="todaywinning-panel-box" class="todaywinning-box">
+									<div class="mytodaywinning-box">
+										<div class="game-site">
+											<div class="game-list scrollbars">
+												<div class="set-scroll">
+													<a id="todaywinning-panel-mytodaywinning-box-bac" class="btn-gamewinning active">
+														<div class="gameinfo-box">
+															<span class="gamename game01 text_40"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-dgtg" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game02 text_41"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-rou" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game03 text_42"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-sicbo" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game04 text_43"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-niuniu" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game05 text_44"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-samgong" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game06 text_27"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-fantan" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game07 text_46"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-sedie" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game08 text_48"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-fpc" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game10 text_47"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-golden" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game11 text_173"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-thisBar" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game13 text_6173"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-paiGow" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game12 text_6174"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-caribbeanPoker" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game17 text_6218"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-tripleEdgePoker" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game21 text_6222"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+													<a id="todaywinning-panel-mytodaywinning-box-redBlack" class="btn-gamewinning">
+														<div class="gameinfo-box">
+															<span class="gamename game22 text_6225"></span>
+															<span class="gamepersentage"></span>
+														</div>
+														<div class="tablerange-box">
+															<div class="graphic-box">
+																<div class="progressbar-value"></div>
+																<div class="progressbar-box">
+																	<div class="progressbar" data-value=""></div>
+																</div>
+															</div>
+															<div class="rangeinfo"></div>
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-baccart" class="gamerank-box baccart active">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-dragontiger" class="gamerank-box dragontiger">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-rouletter" class="gamerank-box rouletter">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-sicbo" class="gamerank-box sicbo">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-niuniu" class="gamerank-box niuniu">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-samgong" class="gamerank-box samgong">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-fantan" class="gamerank-box fantan">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-sedie" class="gamerank-box sedie">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-fpc" class="gamerank-box fpc">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-golden" class="gamerank-box golden">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-paiGow" class="gamerank-box paiGow">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-thisBar" class="gamerank-box thisBar">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-caribbeanPoker" class="gamerank-box caribbeanPoker">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-tripleEdgePoker" class="gamerank-box tripleEdgePoker">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="todaywinning-panel-gamerank-box-redBlack" class="gamerank-box redBlack">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_244"></div>
+											<div class="listtitle-item listtitle03 text_247"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 今日投注王 -->
+							<div id="todaybet-panel" class="toptable-tab-panel todaybet-panel" role="tabpanel">
+								<div id="todaybet-panel-null" class="no-record" style="padding-top:300px;text-align:center;font-size:36px;">
+								</div>
+								<div id="todaybet-panel-box" class="todaybet-box">
+									<div class="todaylinechart-box">
+										<div class="linechart-box"></div>
+									</div>
+									<div class="gamerank-box">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_167"></div>
+											<div class="listtitle-item listtitle03 text_208"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list scrollbars">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 富豪排行榜 -->
+							<div id="regal-panel" class="toptable-tab-panel regal-panel active" role="tabpanel">
+								<div id="regal-panel-null" class="no-record" style="padding-top:300px;text-align:center;font-size:36px;">
+								</div>
+								<div id="regal-panel-box" class="regal-box">
+									<div class="regalrank-box">
+										<div class="rankpic-box">
+										</div>
+									</div>
+									<div class="gamerank-box">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_167"></div>
+											<div class="listtitle-item listtitle03 text_213"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list scrollbars">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 今日大贏家 -->
+							<div id="todaybigwinner-panel" class="toptable-tab-panel todaybigwinner-panel" role="tabpanel">
+								<div id="todaybigwinner-panel-null" class="no-record" style="padding-top:300px;text-align:center;font-size:36px;">
+								</div>
+								<div id="todaybigwinner-panel-box" class="todaybigwinner-box">
+									<div class="bigwinner-box">
+										<div class="rankpic-box">
+										</div>
+									</div>
+									<div class="gamerank-box">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_167"></div>
+											<div class="listtitle-item listtitle03 text_215"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 小費王 -->
+							<div id="besttip-panel" class="toptable-tab-panel besttip-panel" role="tabpanel">
+								<div id="besttip-panel-null" class="no-record" style="padding-top:300px;text-align:center;font-size:36px;">
+								</div>
+								<div id="besttip-panel-box" class="besttip-box">
+									<div class="tip-box">
+										<div class="rankpic-box">
+										</div>
+									</div>
+									<div class="gamerank-box">
+										<div class="listtitle-box">
+											<div class="listtitle-item listtitle01 text_209"></div>
+											<div class="listtitle-item listtitle02 text_167"></div>
+											<div class="listtitle-item listtitle03 text_218"></div>
+										</div>
+										<div class="gameranke-site">
+											<div class="gamerank-list">
+												<div class="set-scroll">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--關注-->
+		<div id="attention-dialog" class="mask_box">
+			<div class="attention-dialog dialog">
+				<div class="title-box">
+					<span><i class="text_64"></i></span>
+					<a class="btn btn-close"></a>
+				</div>
+				<div class="content-box white">
+					<ul class="nav attention-nav-tabs" role="tablist">
+						<li role="presentation">
+							<a id="dealerNavItem" role="tab" data-toggle="tab" class="he-guan text_221"></a>
+						</li>
+						<li role="presentation">
+							<a id="playerNavItem" role="tab" data-toggle="tab" class="player text_220"></a>
+						</li>
+					</ul>
+					<div class="attention-tab-content">
+						<div id="attention-tab-dealer-panel" class="attention-tab-panel dealer-panel" role="tabpanel">
+						</div>
+						<div id="attention-tab-player-panel" class="attention-tab-panel player-panel" role="tabpanel">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--關閉左選單-->
+		<div id="leftMenuMask" style="display:none;position:absolute;width:100%;height:100%;pointer-events:visible;"></div>
+		<!-- 換桌選單 -->
+		<div id="changetable-box" class="Changetable_box" >
+			<div class="changetable_game_list scrollbars" id="changetableScrollbar">
+				<div id="btn-ctgame101" class="changetable_game_item mouse_pointer game101 on">
+					<i></i>
+					<span class="text_40"></span>
+				</div>
+				<div id="btn-ctgame102" class="changetable_game_item mouse_pointer game102">
+					<i></i>
+					<span class="text_41"></span>
+				</div>
+				<div id="btn-ctgame103" class="changetable_game_item mouse_pointer game103">
+					<i></i>
+					<span class="text_42"></span>
+				</div>
+				<div id="btn-ctgame104" class="changetable_game_item mouse_pointer game104">
+					<i></i>
+					<span class="text_43"></span>
+				</div>
+				<div id="btn-ctgame108" class="changetable_game_item mouse_pointer game108">
+					<i></i>
+					<span class="text_48"></span>
+				</div>
+				<!--<div id="btn-ctgame111" class="changetable_game_item mouse_pointer game111" >
+					<i></i>
+					<span class="text_173"></span>
+				</div>-->
+				<div id="btn-ctgame107" class="changetable_game_item mouse_pointer game107">
+					<i></i>
+					<span class="text_46"></span>
+				</div>
+				<div id="btn-ctgame110" class="changetable_game_item mouse_pointer game110">
+					<i></i>
+					<span class="text_47"></span>
+				</div>
+				<div id="btn-ctgame113" class="changetable_game_item mouse_pointer game113">
+					<i></i>
+					<span class="text_6173"></span>
+				</div>
+				<div id="btn-ctgame105" class="changetable_game_item mouse_pointer game105">
+					<i></i>
+					<span class="text_44"></span>
+				</div>
+				<div id="btn-ctgame106" class="changetable_game_item mouse_pointer game106">
+					<i></i>
+					<span class="text_27"></span>
+				</div>
+				<div id="btn-ctgame112" class="changetable_game_item mouse_pointer game112">
+					<i><div class="comingsoon text_132"></div></i>
+					<span class="text_6174"></span>
+				</div>
+				<div id="btn-ctgame117" class="changetable_game_item mouse_pointer game117">
+					<i><div class="comingsoon text_132"></div></i>
+					<span class="text_6218"></span>
+				</div>
+				<div id="btn-ctgame121" class="changetable_game_item mouse_pointer game121">
+					<i><div class="comingsoon text_132"></div></i>
+					<span class="text_6222"></span>
+				</div>
+				<div id="btn-ctgame122" class="changetable_game_item mouse_pointer game122">
+					<i><div class="comingsoon text_132"></div></i>
+					<span class="text_6225"></span>
+				</div>
+				<div id="btn-ctgame125" class="changetable_game_item mouse_pointer game125" style="display: none;">
+					<i><div class="comingsoon text_132"></div></i>
+					<span class="text_6225"></span>
+				</div>
+			</div>
+			<div id="table-list" class="changetable_gametable_list">
+				<!-- 选择桌台 -->
+				<div class="choose_table_box on">
+					<span class="text_6257"></span>
+				</div>
+				<!-- 好路置頂 -->
+				<div id="goodroad_up_box" class="goodroad_up_box">
+					<span class="text_86"></span>
+					<div id="sortSwitch_changeTable" class="goodroad_up"></div>
+				</div>
+				<div id="table-item-game101" class="Cardroad_box_list scrollbars game101"></div>
+				<div id="table-item-game102" class="Cardroad_box_list scrollbars game102"></div>
+				<div id="table-item-game105" class="Cardroad_box_list scrollbars game105"></div>
+				<div id="table-item-game106" class="Cardroad_box_list scrollbars game106"></div>
+				<div id="table-item-game111" class="Cardroad_box_list scrollbars game111"></div>
+				<div id="table-item-game112" class="Cardroad_box_list scrollbars game112"></div>
+				<div id="table-item-game113" class="Cardroad_box_list scrollbars game113"></div>
+				<div id="table-item-game117" class="Cardroad_box_list scrollbars game117"></div>
+				<div id="table-item-game121" class="Cardroad_box_list scrollbars game121"></div>
+				<div id="table-item-game122" class="Cardroad_box_list scrollbars game122"></div>
+				<div id="table-item-game103" class="Cardroad_box_list scrollbars game103"></div>
+				<div id="table-item-game104" class="Cardroad_box_list scrollbars game104"></div>
+				<div id="table-item-game107" class="Cardroad_box_list scrollbars game107"></div>
+				<div id="table-item-game110" class="Cardroad_box_list scrollbars game110"></div>
+				<div id="table-item-game108" class="Cardroad_box_list scrollbars game108"></div>
+			</div>
+			<div id="changetable_close_btn" class="changetable_close_btn mouse_pointer"></div>
+		</div>
+		<div id="news-dialog" class="mask_box">
+			<div  class="news-dialog dialog">
+				<div class="title-box">
+					<span><i class="text_136"></i></span>
+					<a id="news-dialog-btn-close" class="btn-close"></a>
+				</div>
+				<div class="content-box black">
+					<div class="news-box">
+						<div class="news-list">
+							<div class="set-scroll">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 限額 -->
+		<div id="limit_box" class="mask_box" style="z-index: 8">
+			<div class="Limit_box" >
+				<div class="title_box df">
+					<div class="title_box_list df" id="title_box_list">
+						<div class="title_box_item mouse_pointer infoNavItem df" id="infoNavItem">
+							<span class="roomlimit_icon"></span>
+							<span class="text_13"></span>
+						</div>
+						<div class="title_box_item mouse_pointer settingNavItem df" id="settingNavItem">
+							<span class="limitset_icon"></span>
+							<span class="text_138"></span>
+						</div>
+					</div>
+					<div class="close_btn mouse_pointer" id="limit_close"></div>
+				</div>
+				<div class="separationline"></div>
+				<div class="roomlimit_content_box" id="limitInfoContent">
+					<div class="content_title df">
+					</div>
+					<div class="content_body scrollbars df" >
+					</div>
+				</div>
+				<div class="limitset_content_box df" id="limitSettingContent">
+					<div class="limitset_list df" ></div>
+					<div class="submit df mouse_pointer text_781" id="limitSubmit"></div>
+				</div>
+			</div>
+		</div>
+		<!-- 原版 Q版選擇頁面 -->
+		<div id="select_box" class="select_box on" style="pointer-events: auto; z-index: 10">
+			<div class="select_logo"></div>
+			<div class="select_item WM_version"></div>
+			<!--<div class="select_item QWM_version"></div>-->
+			<div class="select_item Q2WM_version"></div>
+		</div>
+		<!-- 密碼設置 -->
+		<div id="passwordsetting-panel" class="mask_box">
+			<div class="passwordsetting_box">
+				<div class="title_box df">
+					<div class="title_box_item df">
+						<div class="language_icon"></div>
+						<span class="text_172"></span>
+					</div>
+					<div class="close_btn mouse_pointer" id="passwordCloseBtn"></div>
+				</div>
+				<div class="content_box df">
+					<div class="form_group df">
+						<label class="control_label label_1 text_6152"></label>
+						<input id="changepassword-dialog-oldPassword" type="password" class="form_control" />
+						<span class="text_6150"></span>
+					</div>
+					<div class="form_group df">
+						<label class="control_label label_2 text_6153"></label>
+						<input id="changepassword-dialog-newPassword" type="password" class="form_control" />
+					</div>
+					<div class="form_group df">
+						<label class="control_label label_3 text_6154"></label>
+						<input id="changepassword-dialog-newPasswordCheck" type="password" class="form_control" />
+					</div>
+					<div class="btn-submit df text_3"></div>
+				</div>
+			</div>
+		</div>
+		<!-- 語系設置 -->
+		<div id="lang_box" class="mask_box">
+			<div class="languages_box">
+				<div class="title_box df">
+					<div class="title_box_item df">
+						<div class="language_icon"></div>
+						<span class="text_6158"></span>
+					</div>
+					<div class="close_btn mouse_pointer" id="langCloseBtn"></div>
+				</div>
+				<div id="language_box" class="setting_box">
+					<a id="language_cn" class="language_item language_cn"></a>
+					<a id="language_tw" class="language_item language_tw"></a>
+					<a id="language_en" class="language_item language_en"></a>
+					<a id="language_th" class="language_item language_th"></a>
+					<a id="language_vi" class="language_item language_vi"></a>
+					<a id="language_ja" class="language_item language_ja"></a>
+					<a id="language_ko" class="language_item language_ko"></a>
+					<a id="language_hi" class="language_item language_hi"></a>
+					<a id="language_ms" class="language_item language_ms"></a>
+					<a id="language_in" class="language_item language_in"></a>
+					<a id="language_es" class="language_item language_es"></a>
+				</div>
+				<div id="lang_confirm" class="submit df mouse_pointer text_781"></div>
+			</div>
+		</div>
+        <!-- 各版共用籌碼設定視窗 -->
+        <div id="chips_box" class="mask_box">
+	        <div class="chips_box">
+	            <div class="title_box df">
+	                <div class="title_box_item df">
+	                    <div class="chips_icon"></div>
+	                    <span class="text_168"></span>
+	                </div>
+	                <div id="chipsBoxCloseBtn" class="close_btn mouse_pointer"></div>
+	            </div>
+	            <div class="separationline"></div>
+	            <div class="content_box scrollbars" id="chipScrollbar">
+	                <div class="content_title df text_92"></div>
+	                <div id="chipsetting-setting-box" class="content_chipbox df">
+	                    <div id="chip_b_1" class="content_chip mouse_pointer chip_b_01 on"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_5" class="content_chip mouse_pointer chip_b_05 on"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_10" class="content_chip mouse_pointer chip_b_10 on"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_20" class="content_chip mouse_pointer chip_b_20 on"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_50" class="content_chip mouse_pointer chip_b_50 on"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_100" class="content_chip mouse_pointer chip_b_100"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_500" class="content_chip mouse_pointer chip_b_500"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_1000" class="content_chip mouse_pointer chip_b_1k"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_5000" class="content_chip mouse_pointer chip_b_5k"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_10000" class="content_chip mouse_pointer chip_b_10k"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_20000" class="content_chip mouse_pointer chip_b_20k"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_50000" class="content_chip mouse_pointer chip_b_50k"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_100000" class="content_chip mouse_pointer chip_b_100k"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_200000" class="content_chip mouse_pointer chip_b_200k"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_1000000" class="content_chip mouse_pointer chip_b_1m"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_5000000" class="content_chip mouse_pointer chip_b_5m"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_10000000" class="content_chip mouse_pointer chip_b_10m"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_20000000" class="content_chip mouse_pointer chip_b_20m"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_50000000" class="content_chip mouse_pointer chip_b_50m"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_100000000" class="content_chip mouse_pointer chip_b_100m"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_200000000" class="content_chip mouse_pointer chip_b_200m"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_500000000" class="content_chip mouse_pointer chip_b_500m"><span class="radio_btn"><i></i></span></div>
+	                    <div id="chip_b_1000000000" class="content_chip mouse_pointer chip_b_1000m"><span class="radio_btn"><i></i></span></div>
+	                </div>
+	            </div>
+	            <div class="submit df mouse_pointer text_781" id="chipSubmit"></div>
+	        </div>
+        </div>
+        <!-- 各版共用額度紀錄+派彩紀錄 -->
+        <div id="record_box" class="mask_box">
+	        <div class="record_box" >
+	            <div class="big_title text_6136"></div>
+	            <div class="title_box df">
+	                <div class="title_box_icon"></div>
+	                <div class="title_box_list df">
+	                    <div class="payout_record mouse_pointer df on" id="payout_record">
+	                        <span class="text_186"></span>
+	                    </div>
+	                    <div class="amount_record mouse_pointer df" id="amount_record">
+	                        <span class="text_187"></span>
+	                    </div>
+	                    <div class="recently_box mouse_pointer df" id="recently_box">
+	                        <span class="title text_188" id="recently_boxSpan"></span>
+	                        <div class="recently_list df" id="recently_list">
+	                            <div class="recently_item mouse_pointer df text_188" day="0"></div>
+	                            <div class="recently_item mouse_pointer df text_189" day="-2"></div>
+	                            <div class="recently_item mouse_pointer df text_190" day="-6"></div>
+	                            <div class="recently_item mouse_pointer df text_191" day="-13"></div>
+	                            <div class="recently_item mouse_pointer df text_192" day="-29"></div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="close_btn mouse_pointer" id="assetsCloseBtn"></div>
+	            </div>
+	            <div class="separationline"></div>
+	            <!-- 派彩紀錄 -->
+	            <div class="payout_box on" id="payout_box">
+	                <div class="content_title df">
+	                    <span class="content_title_item df text_194" style="border-top-left-radius: .7rem;"></span>
+	                    <span class="content_title_item df text_195"></span>
+	                    <span class="content_title_item df text_6216"></span>
+	                    <span class="content_title_item df text_196"></span>
+	                    <span class="content_title_item df text_6144"></span>
+	                    <span class="content_title_item df text_197"></span>
+	                    <span class="content_title_item df text_237"></span>
+	                    <span class="content_title_item df text_199" style="border-top-right-radius: .7rem;"></span>
+	                </div>
+	                <div class="content_body df scrollbars" id="payout_boxScrollbar"></div>
+	            </div>
+	            <!-- 額度紀錄 -->
+	            <div class="amount_box" id="amount_box">
+	                <div class="content_title df">
+	                    <span class="content_title_item df text_194" style="border-top-left-radius: .7rem;"></span>
+	                    <span class="content_title_item df text_201"></span>
+	                    <span class="content_title_item df text_202"></span>
+	                    <span class="content_title_item df text_203"></span>
+	                    <span class="content_title_item df text_204"></span>
+	                    <span class="content_title_item df text_205" style="border-top-right-radius: .7rem;"></span>
+	                </div>
+	                <div class="content_body df scrollbars" id="amount_boxScrollbar"></div>
+	            </div>
+	        </div>
+	    </div>
+	    <!--歷史紀錄回放影片-->
+	    <div id="replay_box" class="mask_box">
+	    	<div class="history_video dialog">
+	    		<div class="title_box df">
+	    			<div class="close_btn mouse_pointer"></div>
+	    		</div>
+	    		<div class="content-box black">
+	    			<video id="replay_video" muted controls autoplay x5-video-player-type="h5-page" x5-playsinline webkit-playsinline playsinline src=""></video>
+	    		</div>
+	    	</div>
+	    </div>
+        <!-- 各版共用音樂視窗 -->
+        <div id="music_box" class="mask_box">
+	        <div class="music_box" >
+	            <div class="title_box df">
+	                <div class="title_box_item df">
+	                    <div class="music_box_icon"></div>
+	                    <span class="text_6149"></span>
+	                </div>
+	                <div class="close_btn mouse_pointer" id="soundCloseBtn"></div>
+	            </div>
+	            <div class="separationline"></div>
+	            <div class="content_box df">
+	                <div class="content_body df">
+	                    <div class="bg_music mouse_pointer df">
+	                        <div class="df bg_music_name text_238"></div>
+	                        <div class="rangebar_box on" id="Music_bgmSwitcher"></div>
+	                    </div>
+	                    <div class="game_music mouse_pointer df">
+	                        <div class="df game_music_name text_243"></div>
+	                        <div class="rangebar_box on" id="Music_effectsSwitcher"></div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+        <!-- 各版共用音樂控制鈕 -->
+        <div id="audioBtn" class="music_btn hid mouse_pointer"></div>
+		<!-- 各版本共用本桌人數 -->
+        <div id="thistablebet_box" class="mask_box">
+            <div class="thistablebet_box" >
+                <div class="title_box df">
+                    <div class="title_box_item df">
+                        <div class="thistablebet_icon"></div>
+                        <span class="text_59"></span>
+                    </div>
+                    <div class="close_btn mouse_pointer" id="thistablebet_closeBtn"></div>
+                </div>
+                <div class="separationline"></div>
+                <div class="content_box scrollbars" id="thistablebetScrollbar">
+                </div>
+            </div>
+        </div>
+        <!-- 回大廳-->
+		<div class="golobby_btn mouse_pointer" id="golobby_btn"></div>
+		<!-- 退出遊戲-->
+		<div id="exit_game_btn" class="exit_game_btn mouse_pointer"></div>
+		<!-- 第三方遊戲提醒 -->
+		<div id="js_phoneHiding" style="display: none;"></div>
+		<!-- 第三方遊戲返回 -->
+		<a id="eSports-box-btn-back" class="eSports-btn-back"  style="display: none;"></a>
+		<!-- 充值 -->
+		<div id="deposit_mask" class="mask_box">
+			<div class="recharge-dialog dialog">
+				<div class="title-box">
+					<span><i class="text_6244"></i></span>
+					<a class="btn btn-close"></a>
+				</div>
+				<div class="content-box white">
+					<ul class="nav recharge-nav-tabs" role="tablist">
+						<li role="presentation">
+							<a role="tab" data-toggle="tab" class="wechat mouse_pointer text_6247"></a>
+						</li>
+						<li role="presentation">
+							<a role="tab" data-toggle="tab" class="alipay mouse_pointer text_6248"></a>
+						</li>
+						<li role="presentation">
+							<a role="tab" data-toggle="tab" class="unionpay mouse_pointer">雲閃付</a>
+						</li>
+						<li role="presentation">
+							<a role="tab" data-toggle="tab" class="qqpay mouse_pointer">QQ支付</a>
+						</li>
+						<li role="presentation">
+							<a role="tab" data-toggle="tab" class="onlinepay mouse_pointer">網銀支付</a>
+						</li>
+					</ul>
+					<div class="recharge-tab-content">
+						<div class="recharge-tab-panel" role="tabpanel">
+							<div class="recharge_channel">
+								<div class="title df">
+									<span class="text_6245"></span>
+									<span class="text_6249"></span>
+								</div>
+								<div class="channel_1 mouse_pointer on text_6249">一</div>
+								<div class="channel_2 mouse_pointer text_6249">二</div>
+							</div>
+							<div class="recharge_money">
+								<div class="title df">
+									<span class="text_6245"></span>
+									<span class="text_6144"></span>
+								</div>
+								<input class="money_input">
+								<span class="currency">RMB</span>
+							</div>
+							<div class="submit df mouse_pointer text_781"></div>
+						</div>
+						<div class="recharge-tab-panel" role="tabpanel">
+							<div class="recharge_channel">
+								<div class="title df">
+									<span class="text_6245"></span>
+									<span class="text_6249"></span>
+								</div>
+								<div class="channel_1 mouse_pointer on text_6249">一</div>
+								<div class="channel_2 mouse_pointer text_6249">二</div>
+							</div>
+							<div class="recharge_banker">
+								<div class="title df">
+									<span class="">選擇銀行</span>
+								</div>
+								<select class="banker_list" name="">
+									　<option class="banker_item" value="">中國信託商業銀行</option>
+									　<option class="banker_item" value="">第一商業銀行</option>
+									　<option class="banker_item" value="">臺灣銀行</option>
+									　<option class="banker_item" value="">臺灣土地銀行</option>
+								</select>
+							</div>
+							<div class="recharge_money">
+								<div class="title df">
+									<span class="text_6245"></span>
+									<span class="text_6144"></span>
+								</div>
+								<input class="money_input">
+								<span class="currency">RMB</span>
+							</div>
+							<div class="submit df mouse_pointer text_781"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ui-3 (總人數 選單 功能按鈕)-->
+		<div class="ui_3_box" id="ui_3_box">
+			<!-- LOGO -->
+			<div id="ui_3_logo" class="ui_3_logo"></div>
+			<!-- 查看紀錄 -->
+			<div class="ui_3_report_btn mouse_pointer" id="ui_3_report_btn">
+				<i></i>
+				<span class="text_6243"></span>
+			</div>
+			<!-- 好路置頂 -->
+			<div id="sortSwitch_menu" class="ui3_goodroad_up">
+				<span class="text_86"></span>
+				</div>
+			<!-- 遊戲選單 -->
+			<div id="ui_3_menu_box" class="ui_3_menu_box">
+				<div class="ui_3_game_item mouse_pointer" id="btn_game_item1">
+					<span class="text_40"></span>
+				</div>
+				<div class="ui_3_game_item mouse_pointer" id="btn_game_item2">
+					<span class="text_41"></span>
+				</div>
+				<div class="ui_3_game_item mouse_pointer" id="btn_game_item3">
+					<span class="text_42"></span>
+				</div>
+				<div class="ui_3_game_item mouse_pointer" id="btn_game_item4">
+					<span class="text_43"></span>
+				</div>
+				<div class="ui_3_game_item mouse_pointer" id="btn_game_item5">
+					<span class="text_175"></span>
+				</div>
+				<div class="ui_3_game_item mouse_pointer" id="btn_game_item6">
+					<span class="text_49"></span>
+				</div>
+				<div class="ui_3_game_item mouse_pointer game7" id="btn_game_item7">
+					<span class="text_6254"></span>
+				</div>
+				<div class="ui_3_game_item mouse_pointer game8" id="btn_game_item8">
+					<span class="text_6226"></span>
+				</div>
+			</div>
+			<!-- 在現總人數 -->
+			<div class="ui_3_all_people_box" id="ui_3_all_people_box">
+				<i class="all_people_icon"></i>
+				<span id="ui_3_onlinePeople"></span>
+			</div>
+			<!-- 版本 -->
+			<div class="ui_3_version" id="ui_3_version"></div>
+			<div class="ui_3_music_btn mouse_pointer" id="ui_3_music_btn"></div>
+			<!-- 規則 -->
+			<div class="ui_3_rule_btn mouse_pointer" id="ui_3_rule_btn"></div>
+			<!-- 放大視窗 -->
+			<div class="ui_3_bigwindows_btn mouse_pointer" id="ui_3_bigwindows_btn"></div>
+			<!-- 退出 -->
+			<div class="ui_3_outgame_btn mouse_pointer" id="ui_3_outgame_btn"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script>
+		document.querySelector("html").setAttribute("co", window.co);
+		document.querySelector(".version-box").innerHTML = window.version;
+		var params = window.location.search.substr(1).split('&');
+		params = params.concat(window.loginparams);
+		var d = new Date();
+		d.setTime(d.getTime() + (60 * 1000));
+		for (var number in params)
+		{
+			var keyAndValue = params[number].split('=');
+			var key = keyAndValue[0];
+			var value = keyAndValue[1];
+			switch(key)
+			{
+				case "ui":
+					window.assignUI = true;
+					window.ui = parseInt(value);
+					break;
+				default:
+			}
+		}
+		switch (window.ui)
+		{
+			case 1:
+				document.getElementById("container").classList.add("qversion_box");
+				document.getElementById("container").classList.remove("type2");
+
+				document.getElementById("extend-container").classList.add("qversion_box");
+				document.getElementById("extend-container").classList.remove("type2");
+				break;
+			case 2:
+				document.getElementById("container").classList.add("qversion_box");
+				document.getElementById("container").classList.add("type2");
+
+				document.getElementById("extend-container").classList.add("qversion_box");
+				document.getElementById("extend-container").classList.add("type2");
+				break;
+			default:
+				document.getElementById("container").classList.remove("qversion_box");
+				document.getElementById("container").classList.remove("type2");
+
+				document.getElementById("extend-container").classList.remove("qversion_box");
+				document.getElementById("extend-container").classList.remove("type2");
+				break;
+		}
+		var domArr = document.querySelectorAll("#loading-box > *");
+		for (var i = 0, len = domArr.length; i < len; i++)
+		{
+			domArr[i].style.display = "block";
+		}
+
+		if (window.co == "newmacau")
+		{
+			var dom = null;
+			dom = document.getElementById("btn-menu");
+			dom.parentNode.removeChild(dom);
+			dom = document.getElementById("btn-changelanguage");
+			dom.parentNode.removeChild(dom);
+			dom = document.getElementById("btn-video");
+			dom.parentNode.removeChild(dom);
+		}
+		var styleArr = null;
+		var styleCount = 0;
+		function OnLoad()
+		{
+			document.addEventListener('touchstart', (event) => 
+			{
+				if (event.touches.length > 1) 
+				{
+					event.preventDefault();
+				}
+			}, { passive: false });
+			/*var lastTouchEnd = 0;
+			document.addEventListener('touchend', (event) => 
+			{
+				const now = (new Date()).getTime();
+				if (now - lastTouchEnd <= 300) 
+					event.preventDefault();
+				lastTouchEnd = now;
+			}, false);*/
+			
+			var hiddenProperty = 'hidden' in document ? 'hidden' :    
+				'webkitHidden' in document ? 'webkitHidden' :    
+				'mozHidden' in document ? 'mozHidden' :    
+				null;
+			var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+			var onVisibilityChange = function()
+			{
+				if (document[hiddenProperty]) 
+				{
+					try
+					{
+						main.pauseDateTime = new Date().getTime();
+						sound.Pause();
+						window.postMessage(
+						{
+							message:"VideoPlayerPause"
+						}, "*");
+					}
+					catch (err) { }
+				}
+				else
+				{
+					try
+					{
+						if (window.navigator.standalone && main.resumeDateTime - main.pauseDateTime > 20000)
+						{
+							window.postMessage(
+							{ 
+								message: "LocationReload"
+							}, "*");
+						}
+						else
+						{
+							main.resumeDateTime = new Date().getTime();
+							sound.Resume();
+							DoResize();
+							window.postMessage(
+							{
+								message:"VideoPlayerResume"
+							}, "*");
+						}
+					}
+					catch (err) { }
+				}
+			}
+			document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+
+			window.bApp = false;
+			document.addEventListener("deviceready", function()
+			{
+				console.log("deviceready");
+
+				//刪除直版按鈕
+				var goToVerticalDom = document.getElementById("goToVertical");
+				if (goToVerticalDom)
+					goToVerticalDom.parentNode.removeChild(goToVerticalDom);
+
+				document.removeEventListener(visibilityChangeEvent, onVisibilityChange);
+
+				window.bApp = true;
+
+				var gameIframeArr = document.querySelectorAll(".gameIframe");
+				for (var i = 0; i < gameIframeArr.length; i++)
+					gameIframeArr[i].style.position = "fixed";
+
+				document.addEventListener("pause", function()
+				{
+					try
+					{
+						console.log("pause");
+						main.pauseDateTime = new Date().getTime();
+						sound.Pause();
+						window.postMessage(
+						{
+							message:"VideoPlayerPause"
+						}, "*");
+					}
+					catch (err) { }
+				}, false);
+				document.addEventListener("resume", function()
+				{
+					try
+					{
+						console.log("resume");
+						main.resumeDateTime = new Date().getTime();
+						if (main.resumeDateTime - main.pauseDateTime > 20000)
+						{
+							window.location = "index.html?sid=" + gData.myData.sid + "&bSidLogin=false";
+						}
+						else
+						{
+							sound.Resume();
+							window.postMessage(
+							{
+								message:"VideoPlayerResume"
+							}, "*");
+						}
+					}
+					catch (err) { }
+				}, false);
+			}, false);
+
+			var script = document.createElement('script');
+			script.setAttribute('type', 'text/javascript');
+			script.setAttribute('src', "./js/common.js?version=" + window.version);
+			script.onload = function()
+			{
+				window.mainContainerDom = document.getElementById("container");
+				window.mainExtendContainerDom = document.getElementById("extend-container");
+				window.addEventListener("resize", DoResize);
+				window.Scaling();
+
+				document.getElementById("popup-box-container").style.display = "none";
+				var script = document.createElement('script');
+				script.setAttribute('type', 'text/javascript');
+				script.setAttribute('src', "js/urlController.js" + "?version=" + window.version);
+				// script.setAttribute('src', "../wm_js/js_original/urlController.js" + "?version=" + window.version);
+				document.body.appendChild(script);
+			};
+			document.getElementsByTagName("head")[0].appendChild(script);
+		}
+		function DoResize()
+		{
+			clearTimeout(window.scalingStID);
+			if (window.bFixedLandscape)
+			{
+				window.scalingStID = setTimeout(function()
+				{
+					window.Scaling();
+					requestAnimationFrame(function()
+					{
+						window.Scaling();
+						requestAnimationFrame(function()
+						{
+							window.Scaling();
+						});
+					});
+				}, 1000);
+			}
+			else
+			{
+				window.scalingStID = setTimeout(function()
+				{
+					window.Scaling();
+				}, 300);
+			}
+		}
+		window.bScaling = true;
+		window.setWidth = 1920;
+		window.setHeight = 1080;
+		window.bFixedLandscape = false;
+		window.bPortrait = false;
+		window.bRotate90 = false;
+		window.maxScale = 16 / 7.5;	//最大壓縮高度
+		window.aspectRatio = 16 / 9;
+		function Scaling()
+		{
+			if (window.bScaling)
+			{
+				var width = window.innerWidth;
+				var height = window.innerHeight;
+				var top = 0;
+				var left = 0;
+				window.bRotate90 = (window.bFixedLandscape && common.bMobile && width < height) ? true : false;
+				if (navigator.userAgent.indexOf("MiuiBrowser") >= 0 && window.bRotate90 == false) 	//fix安卓原生瀏覽器bug 下方擋住
+					height *= 0.85;
+
+				if (window.bFixedLandscape || width > height)
+				{
+					var ww = width;
+					var wh = height;
+					var rate = window.setWidth / window.setHeight;
+					if (common.bMobile)
+					{
+						if (ww > wh)
+							rate = ww / wh > window.maxScale ? window.maxScale : ww / wh;
+						else
+							rate = wh / ww > window.maxScale ? window.maxScale : wh / ww;
+					}
+					var w1 = ww,
+						h1 = Math.round(w1 / rate),
+						h2 = wh,
+						w2 = Math.round(h2 * rate);
+
+					width = (w1 < w2) ? w1 : w2;
+					height = (w1 < w2) ? h1 : h2;
+					top = (wh - height) / 2;
+					left = (ww - width) / 2;
+					var nowScaleX = width / window.setWidth;
+					var nowScaleY = height / window.setHeight;
+				}
+				window.aspectRatio = width / height;
+				if (window.aspectRatio < 1 && window.bRotate90 == false)
+					window.bPortrait = true;
+				else
+					window.bPortrait = false;
+
+				if (window.bRotate90)
+				{
+					document.body.style.transform = "rotate(90deg)";
+					var temp = width;
+					width = temp * rate < wh ? temp * rate : wh;
+					height = temp < width / rate ? temp : width / rate;
+					top = -height - (ww - height) / 2;
+					left = (wh - width) / 2;
+				}
+				else
+				{
+					document.body.style.transform = null;
+				}
+
+				document.documentElement.style.fontSize = (width / 100) + "px";
+				mainContainerDom.style.top = top + "px";
+				mainContainerDom.style.left = left + "px";
+				mainContainerDom.style.width = width + "px";
+				mainContainerDom.style.height = height + "px";
+				mainExtendContainerDom.style.top = top + "px";
+				mainExtendContainerDom.style.left = left + "px";
+				mainExtendContainerDom.style.width = width + "px";
+				mainExtendContainerDom.style.height = height + "px";
+
+				if (window.bApp == false && window.size != 1)
+				{
+					document.getElementsByTagName("html")[0].style.width = width + "px";
+					document.getElementsByTagName("html")[0].style.height = (height * 1.4) + "px";
+				}
+				if (window.main)
+					window.main.Scaling(ww, wh, width, height, top, left, window.bPortrait, window.bRotate90);
+			}
+			if (!window.main || window.main.nowGameID == 0)
+			{
+				clearTimeout(window.scalingStID);
+				window.scalingStID = setTimeout(function()
+				{
+					window.Scaling();
+				}, 1000);
+			}
+		}
+	</script>
+</body>
+</html>

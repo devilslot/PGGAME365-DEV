@@ -1,0 +1,28 @@
+<!doctype html>
+<html style="font-size: 4px;">
+
+<head></head>
+<body></body>
+
+<script>var jsvars = {
+    "game_path": "\/game\/html5\/slots\/fullstate\/evoplay\/hottriplesevens\/",
+    "base_path": "\/game\/html5\/slots\/fullstate\/",
+    "game_name": "fullstate\\html5\\evoplay\\hottriplesevens",
+    "customVars": "7b2230223a2231363133313036222c2231223a2231222c2232223a2231222c2273223a226439643864343565383634326461353563386563353035633930616235636237227d",
+    "back_url": "https:\/\/sacasino.bet",
+    "cash_url": "",
+    "redirect_inside_iframe": false,
+    "action_url": "\/fullstate\/html5\/evoplay\/?project=616",
+    "language": "en",
+    "debug": false,
+    "show_clock": true,
+    "show_history": false,
+    "hosts_for_static": [
+        "https:\/\/play.8provider.com"
+    ],
+    "hide_currency": false,
+    "portrait_mode_enabled": false
+};</script>
+<script src="/game/html5/slots/fullstate/evoplay/hottriplesevens/libs/preloadUtils.js?v=1.0.24" onload=utils.preloadHTML()></script>
+
+</html>

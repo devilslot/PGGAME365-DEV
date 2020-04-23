@@ -1,0 +1,88 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" /><title>
+	เกมไม่พร้อมใช้งาน
+</title><link rel="stylesheet" href="/styles/bootstrap-3.3.4.min.css" />
+  <style>
+    body {
+      padding-top: 20px;
+    }
+
+    .jumbotron {
+      font-size: 18px;
+      font-weight: 200;
+      line-height: 2.1428571435;
+      color: inherit;
+      padding: 10px 0px;
+    }
+
+    .masthead, .body-content {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .jumbotron {
+      text-align: center;
+      background-color: transparent;
+    }
+
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      .jumbotron p {
+        font-size: 18px;
+      }
+
+    .red {
+      color: #d9534f;
+    }
+
+    .green {
+      color: #0fb26b;
+    }
+
+    .small {
+      font-size: 9px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">      
+      <form method="post" action="./?msg=Keyname%2520%2527SGGlamRock%2527%2520is%2520not%2520found%252Factive%2520in%2520configured%2520games%2520for%2520brandid%2520%2527dc41d953-6a76-e711-80de-000d3a802d1d%2527.&amp;l=https%3a%2f%2fsacasino.bet%2flobby&amp;locale=th" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="njUaJ1Bve0CjdeJV/J1NoIaDJ0mcKCbidChktzvxJC8DBlRorB5kN2o0N42uzTPeChQupSitYvukZ46rL4RYjlQuhzVBp77ytsLlugwBG9iiTc7yMPya/8ZMb+xu79cuxmiTP1Bn66aYNpMm4QVUee+r1ea97hqQx1Qcsd6AlJYiaWuSo49GznIjFv3xpyE0HshhcWJ3+19fFGDXwxDL+NhqLpWIHFrhKTb8VKI5cW9rEMlNkSBDHhfuh5ZMoEpiVTbLeRg283R/GOGQS6MPcc2HBurAmwbsJcyrt5JlZ+enLH86NQboJ/XOLHcZWijdbBk/I135nz4hHReO402fvQ==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="0CBC9040" />
+        <p class="lead">
+          Keyname 'SGGlamRock' is not found/active in configured games for brandid 'dc41d953-6a76-e711-80de-000d3a802d1d'.<br>[app-test.insvr.com]
+        </p>
+      </form>
+      <p>
+        <a id="btnLobby" onclick="javascript:gotoLobby();" class="btn btn-default btn-lg"><span class="green">ไปที่ล็อบบี้</span></a>
+        <script type="text/javascript">
+          var lobbyUrl = 'https://sacasino.bet/lobby';
+
+          if (lobbyUrl == '') {
+            document.getElementById('btnLobby').style.display = 'none';
+          }
+          function gotoLobby() {
+            if (lobbyUrl.toLowerCase().indexOf("pm-") == 0) {
+              parent.postMessage(lobbyUrl, "*");
+            }
+            else {
+              top.location.href = lobbyUrl;
+            }
+          }
+        </script>
+      </p>
+
+      <div class="small">GENERAL ERROR | 05-เม.ย.-63 09:01| ENV: test</div>
+    </div>
+  </div>
+</body>
+</html>
+

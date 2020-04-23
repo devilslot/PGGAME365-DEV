@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1' name='viewport'>
+<meta charset='utf-8'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<meta content='black-translucent' name='apple-mobile-web-app-status-bar-style'>
+<meta content='telephone=no' name='format-detection'>
+<meta content='webkit' name='renderer'>
+<meta content='webkit' name='force-rendering'>
+<meta content='yes' name='full-screen'>
+<meta content='true' name='x5-fullscreen'>
+<meta content='true' name='360-fullscreen'>
+<meta content='landscape' name='screen-orientation'>
+<meta content='landscape' name='x5-orientation'>
+<title>
+Dragon Tiger
+</title>
+<link rel="shortcut icon" type="image/x-icon" href="https://s3-ap-southeast-1.amazonaws.com/kmm-public/favicons/dragon-tiger.png" />
+
+<link crossorigin='anonymous' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' rel='stylesheet'>
+<script crossorigin='anonymous' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
+<script crossorigin='anonymous' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
+<script crossorigin='anonymous' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'></script>
+</head>
+<body>
+
+<script src='https://kingmakergames-public.s3-ap-southeast-1.amazonaws.com/ios-inner-height.js'></script>
+<iframe allowfullscreen mozallowfullscreen msallowfullscreen oallowfullscreen scrolling='no' src='https://s3-ap-southeast-1.amazonaws.com/neutec-assets/qat/dragon-tiger/2019-10-22-15-41-19/index.html?lang=th' webkitallowfullscreen></iframe>
+<style>
+  html {
+    height: 100%;
+    width: 100% !important;
+  }
+  html body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+    width: 100% !important;
+  }
+  html body iframe {
+    display: block;
+    background: #000;
+    position: fixed;
+    border: none;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
+    min-width: 100% !important;
+  }
+  
+  @media screen and (orientation:landscape) {
+    body iframe {
+      height: 1px;
+      width: 1px;
+      min-width: 100%;
+      *width: 100%;
+      min-height: 100%;
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  @media screen and (orientation:portrait) {
+    body iframe {
+      height: 1px;
+      width: 1px;
+      min-width: 100%;
+      *width: 100%;
+      min-height: 100%;
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+</style>
+<script>
+  // To add the gif one
+  function InitIOS()
+  {
+    this.safariMask = document.createElement("div");
+    this.safariMask.id = "SafariMask";
+    this.safariMask.style.position = "absolute";
+    this.safariMask.style.width = "100%";
+    this.safariMask.style.height = "200%";
+    this.safariMask.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    var marginTop = document.documentElement.clientHeight / 3.0;
+    var marginLeft = document.documentElement.clientWidth / 3.0;
+    var imgEle = document.createElement("img");
+    imgEle.id = "SafariMask-Img";
+    imgEle.style.height = "200px";
+    imgEle.style.width = "200px";
+    imgEle.style.marginTop = `${marginTop}px`;
+    imgEle.style.marginLeft = `${marginLeft}px`;
+    imgEle.style.display = "block";
+    imgEle.src = "https://s3-ap-southeast-1.amazonaws.com/neutec-assets/static/swipeup.gif";
+    this.safariMask.appendChild(imgEle);
+    document.body.appendChild(this.safariMask);
+  }
+  
+  function isIOSChrome() {
+    var ua = window.navigator.userAgent;
+    var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+    var webkit = !!ua.match(/WebKit/i);
+    var isSafari = !ua.match(/CriOS/i);
+    var iOSChrome = iOS && webkit && !isSafari;
+  
+    return iOSChrome;
+  }
+  
+  function isIOSSafari() {
+    var ua = window.navigator.userAgent;
+    var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+    var webkit = !!ua.match(/WebKit/i);
+    var isSafari = !ua.match(/CriOS/i);
+    var iOSSafari = iOS && webkit && isSafari;
+  
+    return iOSSafari;
+  }
+  
+  function HideShowGif(show)
+  {
+    if (isIOSChrome() && (iosInnerHeight() !== window.innerHeight) && show) {
+      this.safariMask.style.display = "block";
+      document.body.style.height = '150%';
+    } else if (isIOSSafari() && (iosInnerHeight() !== window.innerHeight) && show) {
+      this.safariMask.style.display = "block";
+      document.body.style.height = '150%';
+    } else {
+      this.safariMask.style.display = "none";
+      document.body.style.height = '150%';
+    }
+  }
+  
+  if (isIOSSafari()) {
+    document.addEventListener("DOMContentLoaded", function(event) {
+      // Init Scroll Prompt if iOS
+      InitIOS();
+      HideShowGif(true);
+  
+      window.onresize = function () {
+          HideShowGif(false);
+      };
+    });
+  }
+  
+  if (isIOSChrome()) {
+    document.addEventListener("DOMContentLoaded", function(event) {
+      // Init Scroll Prompt if iOS
+      InitIOS();
+      HideShowGif(true);
+  
+      window.onresize = function () {
+          HideShowGif(false);
+      };
+    });
+  }
+</script>
+
+</body>
+</html>
+<style>
+  body {
+    padding: 24px; }
+    body .card-header {
+      font-size: 24px; }
+    body .borderless td, body .borderless th {
+      border: none; }
+    body .spacer-bottom {
+      margin-bottom: 24px; }
+    body .table-fit {
+      width: 100%; }
+</style>

@@ -1,0 +1,8 @@
+<!doctype html>
+                <html>
+                    <head append-html="/gamepage/games/crash/head.html">
+                        <script> window.jsvars = {"user_id":"1","session_token":"616_5344_7b2230223a2231363133303939222c2231223a2231222c2232223a2231222c2273223a226666643135366538626130616534616633636366666662326665333534663364227d","currency":"DEM","denomination":"1","callback_version":1,"language":"en","game_name":"Instant|HighStriker","s":"d4345d0a441e4062fcd03814c38ff2cf","action_url":"socket.8provider.com","rq_url":"socket.8provider.com","game_path":"/gamepage/games/crash/"} </script>
+                        <script src="/gamepage/games/crash/libs/preloadUtils.js" onload=utils.preloadHTML()></script>
+                    </head>
+                    <body append-html="/gamepage/games/crash/body.html"></body>
+                </html>

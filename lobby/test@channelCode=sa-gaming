@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	SAGaming
+</title><link rel="stylesheet" rev="stylesheet" href="Styles/uiSelection.css?v=28102019" type="text/css" />
+    <script type="text/javascript" src="Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.countdown360.js"></script>
+    <script type="text/javascript" src="Scripts/game.min.js?v=26092018"></script>
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?86b3237fd4ae5464f023a77b0587097f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-76733253-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <script type="text/javascript">
+        var newcountdown;
+
+        var stopCount = function () {
+            $('#blockDiv').css("display", "block");
+            newcountdown.stop();
+        }
+        
+        $(document).ready(function () {
+            newcountdown = $(".timer").countdown360({
+                radius: 16,
+                seconds: 10,
+                strokeWidth: 3,
+                fillStyle: '#636363',
+                strokeStyle: '#80D35A',
+                fontSize: 15,
+                label: "",
+                fontColor: '#FFFFFF',
+                autostart: false,
+                onComplete: function () {
+                    $('#blockDiv').css("display", "block");
+                    autoRedirectH5UI();
+                }
+            });
+            newcountdown.start();
+        });
+    </script>
+    <style type="text/css">
+        #blockDiv {
+            position: absolute;
+            display: none;
+            width: 100%;
+            height: 100%;
+            z-index: 999999;
+        }
+    </style>
+</head>
+<body id="body"><script type='text/javascript'>redirectH5UI();</script></body>
+</html>

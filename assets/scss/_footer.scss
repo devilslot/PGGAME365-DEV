@@ -1,0 +1,52 @@
+.footer {
+    margin-top: auto;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 30px 0;
+    background-color: $body-bg;
+
+    .nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        justify-content: space-around;
+        box-shadow: $box-shadow;
+
+        &-link {
+            font-size: 0.6rem;
+
+            i {
+                display: block;
+                font-size: 1rem;
+                margin-bottom: 0.25rem;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        text-align: left;
+        margin-bottom: 0;
+
+        .nav {
+            position: static;
+            box-shadow: none;
+            background-color: transparent;
+
+            &-link {
+                color: white;
+                font-size: $font-size-base;
+
+                i {
+                    display: none;
+                }
+
+                &:hover {
+                    color: $secondary;
+                    @include gradient-y($start-color: #FFFF51, $end-color: #FFB700, $start-percent: 0%, $end-percent: 100%);
+                }
+            }
+        }
+    }
+}

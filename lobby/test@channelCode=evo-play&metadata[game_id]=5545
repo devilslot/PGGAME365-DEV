@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head append-html="/game/html5/instant/evoplay/mafiasyndicate/head.html?v=0.1.18">
+    <script>var jsvars = {
+    "game_path": "\/game\/html5\/instant\/evoplay\/mafiasyndicate\/",
+    "base_path": "\/game\/html5\/instant\/",
+    "game_name": "instant\\html5\\evoplay\\mafiasyndicate",
+    "customVars": "7b2230223a2231363133313131222c2231223a2231222c2232223a2231222c2273223a223365343262393064616538616535346139363631306536633132653361316336227d",
+    "back_url": "https:\/\/sacasino.bet",
+    "cash_url": "",
+    "redirect_inside_iframe": false,
+    "action_url": "\/fullstate\/html5\/evoplay\/mafiasyndicate\/?project=616",
+    "language": "en",
+    "debug": false,
+    "show_clock": true,
+    "show_history": false,
+    "hosts_for_static": [
+        "https:\/\/play.8provider.com"
+    ],
+    "hide_currency": false,
+    "portrait_mode_enabled": false
+};</script>
+        <script src="/game/html5/instant/evoplay/mafiasyndicate/libs/preloadUtils.js?v=0.1.18" onload=utils.preloadHTML()></script>
+</head>
+
+<body append-html="/game/html5/instant/evoplay/mafiasyndicate/body.html?v=0.1.18">
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+// Colors
+$primary: #180043;
+$secondary: #09001A;
+
+// Font
+@font-face {
+    font-family: "DB Adman X";
+    src: url('../fonts/DBAdmanX.ttf');
+    font-weight: 400;
+}
+
+$font-size-base: 1.5rem;
+$font-family-base: 'DB Adman X',
+sans-serif;
+$enable-responsive-font-sizes: true;
+
+// Slick
+$slick-font-path: '../fonts/';
+$slick-loader-path:'../images/';
+
+// Body
+$body-bg: $secondary;
+$body-color: white;
+
+// Form
+$input-border-radius:0;
+$input-group-addon-bg: white;
+
+// Buttons
+$btn-border-radius:0;

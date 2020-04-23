@@ -1,0 +1,111 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" /> <!-- 還要加這個，數字才不會變成電話 -->
+<meta name="format-detection" content="address=no" />
+<meta name="keywords" content="Sexy Gaming" />
+<meta name="description" content="Sexy Gaming" />
+<meta name="copyright" content="Awesome Entertainment" />
+<meta name="apple-mobile-web-app-title" content="Sexy Gaming" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="theme-color" content="#4d1a8b" />
+<meta name="referrer" content="origin" />
+<title>Sexy Gaming</title>
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon.png" />
+<link href="https://jhmbs89.godbac987.com/CSS/demo/layout.min.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="https://jhmbs89.godbac987.com/images/demo/website_logo.png" />
+<link rel="shortcut icon" href="https://jhmbs89.godbac987.com/images/demo/favicon.ico" type="image/x-icon" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142484408-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+
+	gtag('config', 'UA-142484408-1');
+</script>
+</head>
+	<body class="english">
+		
+		<form id="login" action="/api/UNITTest/login" method="post">
+			<input type="hidden" name="cert" value="Uop78jdh21kqWlUx" />
+			<input type="hidden" name="user" value="demo0405165729402" />
+			<input type="hidden" id="key" name="key" value="" />
+			<input type="hidden" id="language" name="language" value="th" />
+			<input type="hidden" name="dm" value="1" />
+			<input type="hidden" name="reverseBPColor" value="false" />
+			<input type="hidden" name="allowHedgeBetting" value="false" />
+			<input type="hidden" name="mb" value="0" />
+			<input type="hidden" name="lobbyURL" value="/index.jsp" />
+		</form>
+		
+	</body>
+
+	
+
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/js/demo/i18n.js"></script>
+	<script type="text/javascript" src="/js/demo/index.js"></script>
+	<script>
+		function getKey() {
+			var lang = "en";
+			if ($("#en_us").hasClass("active")) {
+				lang = "en";
+			} else if ($("#zh_cn").hasClass("active")) {
+				lang = "cn";
+			} else if ($("#zh_tw").hasClass("active")) {
+				lang = "cn";
+			} else if ($("#th_th").hasClass("active")) {
+				lang = "th";
+			}
+			$("#readyLanguage").val(lang);
+
+			$("#getKey").submit();
+		}
+
+		
+			var obj = JSON.parse('{"status":"1","key":"LQtgNtB6JIpQFc3/YRRfJWpLLYqWpnS40d88VYw7IzM51732r/WIm/jPPFG23s9R","url":"https://test.bikimex.com/api/UNITTest/login?"}');
+			$("#key").val(obj.key);
+			$("#login").submit();
+		
+	</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'/>
+    <title>DG</title>
+    <style>
+        #preLoadBar {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -25px;
+        }
+    </style>
+</head>
+<body style="margin: 0px; background: #0e0e0e;">
+<div id="preLoadBar">
+    <img style="-webkit-user-select: none;margin: auto;"
+         src="data:image/gif;base64,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"/>
+</div>
+</body>
+<script type="text/javascript">
+    let pcHost = 'https://pc.dg0.co'
+    let wapHost = 'https://dg-asia.aogebgjj.com/dgnew/wap/index.html'
+    let loginHost = 'https://login.dg0.co'
+
+    function getQueryString (name) {
+        let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
+        let r = window.location.search.substr(1).match(reg)
+        if (r != null) return unescape(r[2])
+        return null
+    }
+
+    let lang = getQueryString('lang')
+    let token = getQueryString('token')
+    if (token) {
+        try {
+            function get (url) {
+                let httpRequest = new XMLHttpRequest()//第一步：建立所需的对象
+                httpRequest.open('GET', url, false)
+                httpRequest.send()//第三步：发送请求  将请求参数写在URL中
+                return httpRequest.responseText
+            }
+
+            let data = get(loginHost + '/game/saveIp/' + getQueryString('token'))
+            if (data.indexOf('codeId') !== -1) {
+                console.log(data)
+                let params = location.href.substring(location.href.indexOf('?'))
+                if (lang) {
+                    if (params.indexOf('?') !== -1) {
+                        params += '&language=' + lang
+                    } else {
+                        params += '?language=' + lang
+                    }
+                }
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) && location.href.indexOf('pc')) {
+                    location.href = wapHost + params + "&return=dg99.info"
+                } else {
+                    location.href = pcHost + params + "&return=dg99.info"
+                }
+            }
+        } catch (e) {}
+    }
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html style="font-size: 4px;">
+
+<head></head>
+<body></body>
+
+<script>var jsvars = {
+    "game_path": "\/game\/html5\/slots\/fullstate\/evoplay\/charmingqueens\/",
+    "base_path": "\/game\/html5\/slots\/fullstate\/",
+    "game_name": "fullstate\\html5\\evoplay\\charmingqueens",
+    "customVars": "7b2230223a2231363133303335222c2231223a2231222c2232223a2231222c2273223a223263343031666236353565366564656463653634663062646364656533343036227d",
+    "back_url": "https:\/\/sacasino.bet",
+    "cash_url": "",
+    "redirect_inside_iframe": false,
+    "action_url": "\/fullstate\/html5\/evoplay\/?project=616",
+    "language": "th",
+    "debug": false,
+    "show_clock": true,
+    "show_history": false,
+    "hosts_for_static": [
+        "https:\/\/play.8provider.com"
+    ],
+    "hide_currency": false,
+    "portrait_mode_enabled": false
+};</script>
+<script src="/game/html5/slots/fullstate/evoplay/charmingqueens/libs/preloadUtils.js?v=2.0.179" onload=utils.preloadHTML()></script>
+
+</html>

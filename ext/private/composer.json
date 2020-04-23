@@ -1,0 +1,8 @@
+{
+    "name": "neverbet/casino",
+    "description": "Admin Casino",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}

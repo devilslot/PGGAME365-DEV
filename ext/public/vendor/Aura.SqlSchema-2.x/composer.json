@@ -1,0 +1,42 @@
+{
+    "name": "aura/sqlschema",
+    "type": "library",
+    "description": "Provides facilities to read table names and table columns from a database using PDO.",
+    "keywords": [
+        "mysql",
+        "pdo",
+        "pgsql",
+        "postgres",
+        "postgresql",
+        "sqlite",
+        "sql server",
+        "sqlserver",
+        "sqlsrv",
+        "schema",
+        "db",
+        "database",
+        "sql",
+        "ddl"
+    ],
+    "homepage": "https://github.com/auraphp/Aura.SqlSchema",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Aura.SqlSchema Contributors",
+            "homepage": "https://github.com/auraphp/Aura.SqlSchema/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aura\\SqlSchema\\": "src/"
+        }
+    },
+    "extra": {
+        "aura": {
+            "type": "library"
+        }
+    }
+}

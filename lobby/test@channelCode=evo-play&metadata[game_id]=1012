@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head append-html="/game/html5/instant/evoplay/etraces/head.html?v=0.0.76">
+    <script>var jsvars = {
+    "game_path": "\/game\/html5\/instant\/evoplay\/etraces\/",
+    "base_path": "\/game\/html5\/instant\/",
+    "game_name": "instant\\html5\\evoplay\\etraces",
+    "customVars": "7b2230223a2231363133303936222c2231223a2231222c2232223a2231222c2273223a226363373934306634333763633234356666663366646636373734613734333765227d",
+    "back_url": "https:\/\/sacasino.bet",
+    "cash_url": "",
+    "redirect_inside_iframe": false,
+    "action_url": "\/fullstate\/html5\/evoplay\/fouraces\/?project=616",
+    "language": "en",
+    "debug": false,
+    "show_clock": true,
+    "show_history": false,
+    "hosts_for_static": [
+        "https:\/\/play.8provider.com"
+    ],
+    "hide_currency": false,
+    "portrait_mode_enabled": false
+};</script>
+        <script src="/game/html5/instant/evoplay/etraces/libs/preloadUtils.js?v=0.0.76" onload=utils.preloadHTML()></script>
+</head>
+
+<body append-html="/game/html5/instant/evoplay/etraces/body.html?v=0.0.76">
+
+</body>
+
+</html>

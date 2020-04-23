@@ -1,0 +1,29 @@
+@import './animate';
+@import url('https://fonts.googleapis.com/css?family=Kanit:300,400,500,700&display=swap');
+@import './variables';
+@import './bootstrap/bootstrap.scss';
+@import './slick/slick.scss';
+@import './header';
+@import './footer';
+@import './custom';
+
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: $body-bg url('../images/bg-body.png') no-repeat center top;
+    background-size: auto;
+
+    // @include media-breakpoint-up(lg) {
+    //     background-position: center top 100px;
+    // }
+}
+
+main {
+    margin-top: -33px;
+    margin-bottom: 30px;
+}

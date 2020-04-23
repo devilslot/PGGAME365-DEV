@@ -1,0 +1,1 @@
+callurl "http://admin.neverbet.dev/casino/casino_bet.php"

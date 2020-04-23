@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head append-html="/game/html5/table/evoplay/oasispokerclassic/head.html?v=0.0.64">
+    <script>var jsvars = {
+    "game_path": "\/game\/html5\/table\/evoplay\/oasispokerclassic\/",
+    "base_path": "\/game\/html5\/table\/",
+    "game_name": "table\\html5\\evoplay\\oasispokerclassic",
+    "customVars": "7b2230223a2231363133303734222c2231223a2231222c2232223a2231222c2273223a223564303833643866343730653061666362353938313839303438373033343761227d",
+    "back_url": "https:\/\/sacasino.bet",
+    "cash_url": "",
+    "redirect_inside_iframe": false,
+    "action_url": "\/fullstate\/html5\/evoplay\/oasispokerclassic\/?project=616",
+    "language": "en",
+    "debug": false,
+    "show_clock": true,
+    "show_history": false,
+    "hosts_for_static": [
+        "https:\/\/play.8provider.com"
+    ],
+    "hide_currency": false,
+    "portrait_mode_enabled": false
+};</script>
+        <script src="/game/html5/table/evoplay/oasispokerclassic/libs/preloadUtils.js?v=0.0.64" onload=utils.preloadHTML()></script>
+</head>
+
+<body append-html="/game/html5/table/evoplay/oasispokerclassic/body.html?v=0.0.64">
+
+</body>
+
+</html>
