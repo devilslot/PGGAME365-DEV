@@ -22,7 +22,6 @@
       //echo "\nError: " . $sql . "<br>" . $mysqli->error;
   }
 
-
 ?>
 
 <!DOCTYPE html>
