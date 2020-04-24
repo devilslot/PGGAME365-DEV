@@ -1,12 +1,13 @@
 <?php
   $config = include('config.php');
-
+  /*
   $web_lobby_url = "";
   $web_lobby_url .= $config['web_lobby'];
   $web_lobby_url .= "operator_token=" . $config['operator_token'] . "&";
   $web_lobby_url .= "operator_player_session=" . urlencode($config['operator_player_session']) . "&";
   $web_lobby_url .= "language=" . $config['language'];
   $web_lobby_url .= "";
+  */
 ?>
 
 <!DOCTYPE html>
@@ -20,14 +21,12 @@
   </head>
 
   <body>
-    <button onclick="window.location.href='<?=$web_lobby_url?>';">เข้าสู่ระบบ</button><BR>
+    <button onclick="window.location.href='/login';">เข้าสู่ระบบ</button><BR>
+    <button onclick="window.location.href='/demo-pg'">ทดลองเล่น</button><BR>
     <button onclick="window.location.href='<?=$config['host']?>/register';">สมัครสมาชิก</button><BR>
     <?php
       echo hash("sha256",rand());
     ?>
-    <!--
-    <button onclick="window.open('<?=$web_lobby_url?>','_blank');">เข้าสู่ระบบ</button>
-    -->
 </body>
 
 </html>

@@ -31,16 +31,16 @@ https://public.pg-redirect.net/web-lobby/tournament/?operator_token=fu6fpagpekf7
 */
 
 return array(
-	'site_id' => 'PG365',
-    'host' => 'https://sexybet.pggame365.com',
-	'app_dir' => 'C:\\xampp\\htdocs\\pggame365\\sexygaming_bet\\',
+	'site_id' => 'DEV01',
+    'host' => 'https://dev.phcasino777.com',
+	'app_dir' => 'C:\\xampp\\htdocs\\pggame365\\dev\\',
 	'img_url' => '/public/images/',
-	'line_at_url' => 'https://line.me/R/ti/p/@pggame365',
+	'line_at_url' => 'https://line.me/R/ti/p/@phcasino777',
 	'css_url' => '/public/css/',
 	'js_url' => '/public/js/',
-	'brand_name' => 'PGGAME365',
-	'brand_name_url' => 'sexybet.pggame365.com',
-	'title' => 'สมัครสล็อต epicwin slot เว็บสล็อต ออโต้ สล็อตเล่นฟรี เครดิตฟรี',
+	'brand_name' => 'PC777',
+	'brand_name_url' => 'dev.phcasino777.com',
+	'title' => 'สมัครสล็อต เว็บสล็อต ออโต้ สล็อตเล่นฟรี เครดิตฟรี',
 	'operator_token' => 'febbef7fac4d0b817fcdddd9c8ec54c8',
 	'secret_key' => 'fedf32e5f5baff64efd7982f9ad07112',
 	'PgSoftAPIDomain' => 'https://api.int.pg-bo.net/external',

@@ -42,9 +42,9 @@ $wallet[2]['number'] = '0886982035';*/
 /* DB SETTING */
 
 $DB_Host = 'localhost';
-$DB_Username = 'pg365_usr';
-$DB_Password = 'xPiioTDKaP93g84c';
-$DB_Name = 'pg365_tst';
+$DB_Username = 'dev01_usr';
+$DB_Password = '4i5yH7ZWMO1zY35k';
+$DB_Name = 'dev01';
 $DB_Charset = 'utf8';
 
 $mysqli = new mysqli($DB_Host, $DB_Username, $DB_Password, $DB_Name);
