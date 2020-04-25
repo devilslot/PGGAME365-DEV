@@ -1,6 +1,6 @@
 <?php
 require_once '../dbmodel.php';
-//require_once '../function.php';
+require_once '../function.php';
 //require_once '../config.php';
 if (isset($_POST['phone']) and isset($_POST['password'])) {
     $phone  = trim($_POST['phone']);
@@ -16,8 +16,6 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     $data_members = $mysqli->query($sql);
     exit();
     if (mysqli_num_rows($data_members) > 0) {
-        $stmt->bind_result($username); 
-        $stmt->fetch();
         $_SESSION['username'] = $username;
         echo "<script>window.location = '../profile.php'</script>";
     }else{
