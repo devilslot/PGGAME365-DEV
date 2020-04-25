@@ -21,6 +21,7 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     echo "number_rows : ".$num_rows;
     exit();
     if ($num_rows > 0) {
+        $data_members->fetch_assoc();
         $_SESSION['username'] = $username;
         $_SESSION['operator_player_session'] = $data_members['member_login'];
         echo "ops : ".$_SESSION['operator_player_session'];
