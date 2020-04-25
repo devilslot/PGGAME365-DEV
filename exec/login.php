@@ -15,8 +15,9 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     */
     echo "SQL : " . $sql . PHP_EOL;
 
-    $data_members = $mysqli->query($sql)->fetch_assoc();
+    $data_members = $mysqli->query($sql); //->fetch_assoc();
     $num_rows = mysqli_num_rows($data_members);
+    //$num_row = 
     echo "number_rows : ".$num_rows;
     exit();
     if ($num_rows > 0) {
