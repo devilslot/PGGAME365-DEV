@@ -19,7 +19,7 @@
     <meta name="robots" content="noodp">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    
+
   </head>
 
   <body>
@@ -36,8 +36,8 @@
     <button onclick="window.location.href='<?=$config['host']?>/register';">สมัครสมาชิก</button><BR><BR>
     
     
-    <?php
-      //echo hash("sha256",rand());
+		<?php
+        include(dirname(__FILE__).'/template/footer_js.php');
     ?>
 			<script>
             $("#login").submit(function(e) {
