@@ -16,9 +16,12 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     */
 
     $data_members = $mysqli->query($sql);
-    //exit();
-    if (mysqli_num_rows($data_members) > 0) {
+    $num_rows = mysqli_num_rows($data_members);
+    if ($num_rows > 0) {
         $_SESSION['username'] = $username;
+        $_SESSION['operator_player_session'] = $data_members['member_login'];
+        echo "ops : ".$_SESSION['operator_player_session'];
+        exit();
         echo "<script>window.location = '../profile.php'</script>";
     }else{
         echo "<script>Swal.fire(
