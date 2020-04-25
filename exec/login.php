@@ -9,12 +9,14 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     $sql = "SELECT * FROM members WHERE ";
     $sql .= "member_phone = '" . $phone . "' AND member_password = '" . $password . "'";
 
+    /*
     echo "Phone : " . $phone . PHP_EOL;
     echo "Password : " . $password . PHP_EOL;
     echo "SQL : " . $sql . PHP_EOL;
+    */
 
     $data_members = $mysqli->query($sql);
-    exit();
+    //exit();
     if (mysqli_num_rows($data_members) > 0) {
         $_SESSION['username'] = $username;
         echo "<script>window.location = '../profile.php'</script>";
