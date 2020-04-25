@@ -22,7 +22,7 @@
 
   <body>
     <form id="login" method="post">
-      <label for="username">Username : </label><input type="text" name="username" id="username" />
+      <label for="phone">Phone : </label><input type="text" name="phone" id="phone" />
       <br class="clear" /> 
       <label for="password">Password : </label><input type="password" name="password" id="password" />
       <br class="clear" /> 
@@ -38,7 +38,7 @@
       //echo hash("sha256",rand());
     ?>
 			<script>
-            $("#register").submit(function(e) {
+            $("#login").submit(function(e) {
                e.preventDefault();
                $.post('/exec/login.php', $(this).serialize(), function(data) {
                   $("#alerts").html(data)

@@ -1,4 +1,6 @@
 <?php
+require_once '../dbmodel.php';
+require_once '../function.php';
 require_once '../config.php';
 if (isset($_POST['phone']) and isset($_POST['password'])) {
     $phone  = trim($_POST['phone']);
