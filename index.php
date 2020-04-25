@@ -21,7 +21,7 @@
   </head>
 
   <body>
-    <form method="POST" action="/exec/login">
+    <form method="POST" action="/exec/login.php">
       <label for="phone">Phone : </label><input type="text" name="phone" id="phone" />
       <br class="clear" /> 
       <label for="password">Password : </label><input type="password" name="password" id="password" />
