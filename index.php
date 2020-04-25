@@ -21,7 +21,7 @@
   </head>
 
   <body>
-    <form id="login" method="post">
+    <form method="POST" id="login">
       <label for="phone">Phone : </label><input type="text" name="phone" id="phone" />
       <br class="clear" /> 
       <label for="password">Password : </label><input type="password" name="password" id="password" />
