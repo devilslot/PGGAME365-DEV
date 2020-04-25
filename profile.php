@@ -117,7 +117,7 @@
                         <h3 class="card-title">ลิงค์แนะนำเพื่อน</h3> <?=$config['host']?>/aff?<?=$_SESSION['operator_player_session']?>
                     </div>
                     <div class="transaction card-body">
-                        <h3 class="card-title">ลิงค์แนะนำเพื่อน</h3> <?=$config['host']?>/aff?<?=$_SESSION['operator_player_session']?>
+                        <h3 class="card-title">โปรโมชั่น</h3> <?=$config['host']?>/aff?<?=$_SESSION['operator_player_session']?>
                     </div>
                     <div class="transaction card-body">
                         <h3 class="card-title">ประวัติการทำรายการ 7 วันล่าสุด</h3>
