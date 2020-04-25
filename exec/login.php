@@ -12,20 +12,19 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     /*
     echo "Phone : " . $phone . PHP_EOL;
     echo "Password : " . $password . PHP_EOL;
-    */
     echo "SQL : " . $sql . PHP_EOL;
+    */
 
     $data_members = $mysqli->query($sql); //->fetch_assoc();
     $num_rows = mysqli_num_rows($data_members);
-    //$num_row = 
-    echo "number_rows : ".$num_rows;
-    exit();
+    //echo "number_rows : ".$num_rows;
+    //exit();
     if ($num_rows > 0) {
-        $data_members->fetch_assoc();
+        $data_members = $data_members->fetch_assoc();
         $_SESSION['username'] = $username;
         $_SESSION['operator_player_session'] = $data_members['member_login'];
         echo "ops : ".$_SESSION['operator_player_session'];
-        exit();
+        //exit();
         echo "<script>window.location = '../profile.php'</script>";
     }else{
         echo "<script>Swal.fire(
