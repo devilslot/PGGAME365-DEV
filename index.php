@@ -21,13 +21,13 @@
   </head>
 
   <body>
-  <form id="login" method="post">
-    <label for="username">Username</label><input type="text" name="username" id="username" />
-    <br class="clear" /> 
-    <label for="password">password</label><input type="password" name="password" id="password" />
-    <br class="clear" /> 
-    <button type="submit" id="btn-submit">เข้าสู่ระบบ</button>
-  </form>
+    <form id="login" method="post">
+      <label for="username">Username</label><input type="text" name="username" id="username" />
+      <br class="clear" /> 
+      <label for="password">password</label><input type="password" name="password" id="password" />
+      <br class="clear" /> 
+      <button type="submit" id="btn-submit">เข้าสู่ระบบ</button>
+    </form>
     <button onclick="window.location.href='/demo-pg'">ทดลองเล่น</button><BR>
     <button onclick="window.location.href='<?=$config['host']?>/register';">สมัครสมาชิก</button><BR>
     <?php
