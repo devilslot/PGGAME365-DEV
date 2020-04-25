@@ -13,7 +13,7 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
         $stmt->bind_result($username); 
         $stmt->fetch();
         $_SESSION['username'] = $username;
-        echo "<script>window.location = 'profile.php'</script>";
+        echo "<script>window.location = 'exec/profile.php'</script>";
     }else{
         echo "<script>Swal.fire(
             'เข้าสู่ระบบไม่สำเร็จ',
