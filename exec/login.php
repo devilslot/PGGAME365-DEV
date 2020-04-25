@@ -5,8 +5,15 @@ require_once '../dbmodel.php';
 if (isset($_POST['phone']) and isset($_POST['password'])) {
     $phone  = trim($_POST['phone']);
     $password = trim($_POST['password']);
+
     $sql = "SELECT * FROM members WHERE ";
     $sql .= "member_phone = '" . $phone . "' AND member_password = '" . $password . "'";
+
+    echo "Phone : " . $phone . PHP_EOL;
+    echo "Password : " . $password . PHP_EOL;
+    echo "SQL : " . $sql . PHP_EOL;
+    exit();
+
     $data_members = $mysqli->query($sql)->fetch_assoc();
     if (count($data_members) > 0) {
         $stmt->bind_result($username); 
