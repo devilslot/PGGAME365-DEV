@@ -12,10 +12,10 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     echo "Phone : " . $phone . PHP_EOL;
     echo "Password : " . $password . PHP_EOL;
     echo "SQL : " . $sql . PHP_EOL;
-    exit();
 
-    $data_members = $mysqli->query($sql)->fetch_assoc();
-    if (count($data_members) > 0) {
+    $data_members = $mysqli->query($sql);
+    exit();
+    if (mysqli_num_rows($data_members) > 0) {
         $stmt->bind_result($username); 
         $stmt->fetch();
         $_SESSION['username'] = $username;
