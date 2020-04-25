@@ -15,7 +15,7 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     echo "SQL : " . $sql . PHP_EOL;
     */
 
-    $data_members = $mysqli->query($sql);
+    $data_members = $mysqli->query($sql)->fetch_assoc();;
     $num_rows = mysqli_num_rows($data_members);
     if ($num_rows > 0) {
         $_SESSION['username'] = $username;
