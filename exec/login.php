@@ -1,6 +1,6 @@
 <?php
 require_once '../dbmodel.php';
-require_once '../function.php';
+//require_once '../function.php';
 //require_once '../config.php';
 if (isset($_POST['phone']) and isset($_POST['password'])) {
     $phone  = trim($_POST['phone']);
@@ -12,11 +12,13 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     /*
     echo "Phone : " . $phone . PHP_EOL;
     echo "Password : " . $password . PHP_EOL;
-    echo "SQL : " . $sql . PHP_EOL;
     */
+    echo "SQL : " . $sql . PHP_EOL;
 
-    $data_members = $mysqli->query($sql)->fetch_assoc();;
+    $data_members = $mysqli->query($sql)->fetch_assoc();
     $num_rows = mysqli_num_rows($data_members);
+    echo "number_rows : ".$num_rows;
+    exit();
     if ($num_rows > 0) {
         $_SESSION['username'] = $username;
         $_SESSION['operator_player_session'] = $data_members['member_login'];

@@ -18,10 +18,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noodp">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
   </head>
 
   <body>
-    <form method="POST" action="/exec/login.php">
+    <form method="POST" id="login">
       <label for="phone">Phone : </label><input type="text" name="phone" id="phone" />
       <br class="clear" /> 
       <label for="password">Password : </label><input type="password" name="password" id="password" />
