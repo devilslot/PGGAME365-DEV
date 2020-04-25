@@ -28,9 +28,6 @@
     <br class="clear" /> 
     <button type="submit" id="btn-submit">เข้าสู่ระบบ</button>
   </form>
-
-
-    <button onclick="window.location.href='/login';">เข้าสู่ระบบ</button><BR>
     <button onclick="window.location.href='/demo-pg'">ทดลองเล่น</button><BR>
     <button onclick="window.location.href='<?=$config['host']?>/register';">สมัครสมาชิก</button><BR>
     <?php
